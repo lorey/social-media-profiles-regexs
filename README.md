@@ -9,7 +9,8 @@ Allowed for usernames are alphanumeric characters and underscores.
     http(s)?://(www\.)?github.com/[A-z 0-9 _]+
 Exclude subdomains as these redirect to github pages sometimes.
 
-TODO: Regex for pages like someuser.github.io
+    http(s)?://([A-z 0-9 - _]+).github.(com|io)
+Regex for pages like someuser.github.io.
 
 ## TODO
 I plan on adding the following social media profiles at the moment.
