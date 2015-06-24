@@ -1,6 +1,10 @@
 # social-media-profiles-regexs
 Regular expressions to match and extract urls of social media profiles in a list of urls.
 
+## Twitter
+    .*twitter.com/[A-z 0-9 _]+
+Allowed for usernames are alphanumeric characters and underscores.
+
 ## TODO
 I plan on adding the following social media profiles at the moment.
 * twitter
