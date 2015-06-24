@@ -5,9 +5,14 @@ Regular expressions to match and extract urls of social media profiles in a list
     .*twitter.com/[A-z 0-9 _]+
 Allowed for usernames are alphanumeric characters and underscores.
 
+## Github
+    http(s)?://(www\.)?github.com/[A-z 0-9 _]+
+Exclude subdomains as these redirect to github pages sometimes.
+
+TODO: Regex for pages like someuser.github.io
+
 ## TODO
 I plan on adding the following social media profiles at the moment.
-* twitter
 * facebook
 * linkedin
 * xing
@@ -20,7 +25,6 @@ I plan on adding the following social media profiles at the moment.
 * medium
 * youtube
 * stackoverflow
-* github
 * bitbucket
  
 Feel free to add any social media site you want!
