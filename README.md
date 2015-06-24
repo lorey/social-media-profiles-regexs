@@ -2,14 +2,14 @@
 Regular expressions to match and extract urls of social media profiles in a list of urls.
 
 ## Twitter
-    .*twitter.com/[A-z 0-9 _]+
+    .*twitter\.com\/[A-z 0-9 _]+\/?
 Allowed for usernames are alphanumeric characters and underscores.
 
 ## Github
-    http(s)?://(www\.)?github.com/[A-z 0-9 _ -]+
+    http(s)?:\/\/(www\.)?github\.com/[A-z 0-9 _ -]+
 Exclude subdomains as these redirect to github pages sometimes.
 
-    http(s)?://([A-z 0-9 - _]+).github.(com|io)
+    http(s)?:\/\/([A-z 0-9 - _]+)\.github\.(com|io)
 Regex for pages like someuser.github.io.
 
 ## TODO
