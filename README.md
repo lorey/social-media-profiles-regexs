@@ -1,5 +1,5 @@
-# social-media-profiles-regexs
-Regular expressions to match and extract urls of social media profiles in a list of url.s
+# Regular Expressions to Match Social Media Profiles
+This repository lists regular expressions to match and extract URLs of social media profiles. For simplicity URLs have to be filtered beforehand, i.e. the regular expression has to be executed on a single URL. To do this, you could use a regular expression matching valid URLs or use a specific library, for example JSOUP for Java.
 
 ## Twitter
     .*twitter\.com\/[A-z 0-9 _]+\/?
