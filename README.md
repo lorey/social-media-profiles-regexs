@@ -1,18 +1,18 @@
 # Regular Expressions to Match Social Media Profiles
-This repository lists regular expressions to match and extract URLs of social media profiles. For simplicity URLs have to be filtered beforehand, i.e. the regular expression has to be executed on a single URL. To do this, you could use a regular expression matching valid URLs or use a specific library, for example JSOUP for Java.
+This repository lists regular expressions to match and extract URLs of social media profiles. For simplicity URLs have to be filtered beforehand, i.e. the regular expression has to be executed on a single URL. To do this, you could use a regular expression matching valid URLs or use a specific library, for example JSOUP for Java. Furthermore, only exact profile urls are matched (for example no profile urls inside a url referencing a post).
 
 ## Twitter
-    .*twitter\.com\/[A-z 0-9 _]+\/?
+    http(s)?:\/\/.*\.twitter\.com\/[A-z 0-9 _]+\/?
 Allowed for usernames are alphanumeric characters and underscores. 
 
 ### Verification
 Send request to page and check for username in answer (rate limit?)
 
 ## Github
-    http(s)?:\/\/(www\.)?github\.com/[A-z 0-9 _ -]+
+    http(s)?:\/\/(www\.)?github\.com/[A-z 0-9 _ -]+\/?
 Exclude subdomains as these redirect to github pages sometimes.
 
-    http(s)?:\/\/([A-z 0-9 - _]+)\.github\.(com|io)
+    http(s)?:\/\/([A-z 0-9 - _]+)\.github\.(com|io)\/?
 Regex for pages like someuser.github.io.
 
 ### Verification
@@ -20,7 +20,7 @@ Use https://api.github.com/users/{user_login} (60 requests/hour unauthenticated)
 
 ## Linkedin
     http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/(A-z 0-9 _ -)\/?
-Public URLs. (TODO: there are also linkedin.com/userxy profiles.
+RegEx for public URLs.
 
     http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z 0-9 _ -]+(\/[A-z 0-9]+){3}\/?
 Matches public profiles that need three keys(?) after the actual name.
@@ -29,11 +29,12 @@ Matches public profiles that need three keys(?) after the actual name.
 Check page for profile specific html (rate limit?)
 
 ## Facebook
-    http(s)?:\/\/(www\.)?facebook\.com\/(A-z 0-9 _ - \.)\/?
-
-Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verifiy that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
+    http(s)?:\/\/(www\.)?(facebook|fb)\.com\/(A-z 0-9 _ - \.)\/?
+Matches facebook.com and fb.com (shortlink).
 
 ### Verification
+Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verifiy that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
+
 #### API
 http://graph.facebook.com/v2.3/{{username}} gives the following result, if the user exists:
 
@@ -52,7 +53,6 @@ A GET request on an existing (but hidden) user with a randomly added point seems
 * Verification checks (ideas first and maybe scripts at a later point)
 
 I plan on adding the following social media profiles at the moment.
-* facebook
 * xing
 * instagram
 * google plus
