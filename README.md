@@ -12,6 +12,13 @@ Exclude subdomains as these redirect to github pages sometimes.
     http(s)?:\/\/([A-z 0-9 - _]+)\.github\.(com|io)
 Regex for pages like someuser.github.io.
 
+## Linkedin
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/(A-z 0-9 _ -)\/?
+Public URLs. (TODO: there are also linkedin.com/userxy profiles.
+
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z 0-9 _ -]+(\/[A-z 0-9]+){3}\/?
+public profiles that need the three keys after the actual name.
+
 ## TODO
 I plan on adding the following social media profiles at the moment.
 * facebook
