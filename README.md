@@ -25,6 +25,23 @@ Matches public profiles that need three keys(?) after the actual name.
 
 Verification: Check page for profile specific html (rate limit?)
 
+## Facebook
+    http(s)?:\/\/(www\.)?facebook\.com\/(A-z 0-9 _ - \.)\/?
+
+Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verifiy that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
+
+Verification: http://graph.facebook.com/v2.3/{{username}} gives the following result, if the user exists:
+
+    {
+        "error": {
+        "message": "(#803) Cannot query users by their username ({{specified username}})",
+        "type": "OAuthException",
+        "code": 803
+        }
+    }
+
+Also a GET request on an existing (but hidden) user with a random point seems to redirect to the real username.
+
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
 
