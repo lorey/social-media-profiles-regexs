@@ -22,7 +22,6 @@ public profiles that need the three keys after the actual name.
 ## TODO
 I plan on adding the following social media profiles at the moment.
 * facebook
-* linkedin
 * xing
 * instagram
 * google plus
@@ -35,4 +34,4 @@ I plan on adding the following social media profiles at the moment.
 * stackoverflow
 * bitbucket
  
-Feel free to add any social media site you want!
+Feel free to add any social media site you would like to find here!
