@@ -20,6 +20,8 @@ Public URLs. (TODO: there are also linkedin.com/userxy profiles.
 public profiles that need the three keys after the actual name.
 
 ## TODO
+* Checking validity (ideas and possibly scripts at a later point)
+
 I plan on adding the following social media profiles at the moment.
 * facebook
 * xing
