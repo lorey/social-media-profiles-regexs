@@ -48,17 +48,35 @@ http://graph.facebook.com/v2.3/{{username}} gives the following result, if the u
 
 #### GET request
 A GET request on an existing (but hidden) user with a randomly added point seems to redirect to the real username.
+## Instagram
+    https?:\/\/(www\.)?instagram\.com\/([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)
+
+The rules:
+ * Matches with one . in them disco.dude but not two .. disco..dude
+ * Ending period not matched discodude.
+ * Match underscores _ _disco__dude_
+ * Max characters of 30 1234567890123456789012345678901234567890
+
+## Google Plus
+    https?:\/\/plus\.google\.com\/\+[^/]+|\d{21}
+
+Matches username or profile numbers up to 21 digits.
+
+## Skype
+    (?:(?:callto|skype):)(?:[a-z][a-z0-9\\.,\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?
+
+Matches Skype's URLs to add contact, call, chat.
+## Telegram
+    https?:\/\/(t(elegram)?\.me|telegram\.org)\/([a-z0-9\_]{5,32})\/?
+Matches for t.me, telegram.me and telegram.org
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
 
 I plan on adding the following social media profiles at the moment.
 * xing
-* instagram
-* google plus
 * pinterest
 * vimeo
-* skype
 * wordpress
 * medium
 * youtube
