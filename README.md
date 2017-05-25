@@ -57,13 +57,16 @@ The rules:
  * Match underscores _ _disco__dude_
  * Max characters of 30 1234567890123456789012345678901234567890
 
+## Google Plus
+    https?:\/\/plus\.google\.com\/\+[^/]+|\d{21}
+
+Matches username or profile numbers up to 21 digits.
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
 
 I plan on adding the following social media profiles at the moment.
 * xing
-* google plus
 * pinterest
 * vimeo
 * skype
