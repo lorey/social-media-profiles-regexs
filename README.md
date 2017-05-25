@@ -62,6 +62,11 @@ The rules:
 
 Matches username or profile numbers up to 21 digits.
 
+## Skype
+    (?:(?:callto|skype):)(?:[a-z][a-z0-9\\.,\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?
+
+Matches Skype's URLs to add contact, call, chat.
+
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
 
@@ -69,7 +74,6 @@ I plan on adding the following social media profiles at the moment.
 * xing
 * pinterest
 * vimeo
-* skype
 * wordpress
 * medium
 * youtube
