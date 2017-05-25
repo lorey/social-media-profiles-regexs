@@ -66,6 +66,9 @@ Matches username or profile numbers up to 21 digits.
     (?:(?:callto|skype):)(?:[a-z][a-z0-9\\.,\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?
 
 Matches Skype's URLs to add contact, call, chat.
+## Telegram
+    https?:\/\/(t(elegram)?\.me|telegram\.org)\/([a-z0-9\_]{5,32})\/?
+Matches for t.me, telegram.me and telegram.org
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
