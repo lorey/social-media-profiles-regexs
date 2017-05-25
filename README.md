@@ -48,13 +48,21 @@ http://graph.facebook.com/v2.3/{{username}} gives the following result, if the u
 
 #### GET request
 A GET request on an existing (but hidden) user with a randomly added point seems to redirect to the real username.
+## Instagram
+    https?:\/\/(www\.)?instagram\.com\/([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)
+
+The rules:
+ * Matches with one . in them disco.dude but not two .. disco..dude
+ * Ending period not matched discodude.
+ * Match underscores _ _disco__dude_
+ * Max characters of 30 1234567890123456789012345678901234567890
+
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
 
 I plan on adding the following social media profiles at the moment.
 * xing
-* instagram
 * google plus
 * pinterest
 * vimeo
