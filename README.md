@@ -21,7 +21,7 @@ Regex for pages like someuser.github.io.
 Use https://api.github.com/users/{user_login} (60 requests/hour unauthenticated)
 
 ## Linkedin
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/(A-z 0-9 _ -)\/?
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z 0-9 _ -]+\/?
 RegEx for public URLs.
 
     http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z 0-9 _ -]+(\/[A-z 0-9]+){3}\/?
