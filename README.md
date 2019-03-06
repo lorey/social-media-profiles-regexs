@@ -4,34 +4,34 @@ This repository lists regular expressions to match and extract URLs of social me
 Please note: I've also created a [Python library called socials](https://github.com/lorey/socials) that uses these expressions to *automate url detection* and extraction.
 
 ## Twitter
-    http(s)?://(.*\.)?twitter\.com\/[A-z 0-9 _]+\/?
+    http(s)?:\/\/(.*\.)?twitter\.com\/[A-z0-9_]+\/?
 Allowed for usernames are alphanumeric characters and underscores. 
 
 ### Verification
 Send request to page and check for username in answer (rate limit?)
 
 ## Github
-    http(s)?:\/\/(www\.)?github\.com/[A-z 0-9 _ -]+\/?
+    http(s)?:\/\/(www\.)?github\.com\/[A-z0-9_-]+\/?
 Exclude subdomains as these redirect to github pages sometimes.
 
-    http(s)?:\/\/([A-z 0-9 - _]+)\.github\.(com|io)\/?
+    http(s)?:\/\/([A-z0-9-_]+)\.github\.(com|io)\/?
 Regex for pages like someuser.github.io.
 
 ### Verification
 Use https://api.github.com/users/{user_login} (60 requests/hour unauthenticated)
 
 ## Linkedin
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/(A-z 0-9 _ -)\/?
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z0-9_-]+\/?
 RegEx for public URLs.
 
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z 0-9 _ -]+(\/[A-z 0-9]+){3}\/?
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z0-9_-]+(\/[A-z0-9]+){3}\/?
 Matches public profiles that need three keys(?) after the actual name.
 
 ### Verification
 Check page for profile specific html (rate limit?)
 
 ## Facebook
-    http(s)?:\/\/(www\.)?(facebook|fb)\.com\/(A-z 0-9 _ - \.)\/?
+    http(s)?:\/\/(www\.)?(facebook|fb)\.com\/[A-z0-9_\-\.]+\/?
 Matches facebook.com and fb.com (shortlink).
 
 ### Verification
