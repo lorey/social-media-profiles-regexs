@@ -72,6 +72,12 @@ Matches Skype's URLs to add contact, call, chat.
     https?:\/\/(t(elegram)?\.me|telegram\.org)\/([a-z0-9\_]{5,32})\/?
 Matches for t.me, telegram.me and telegram.org
 
+## Stack Overflow
+
+    /^http(s)?:\/\/(www\.)?stackoverflow\.com\/users\/[0-9]+\/[A-z0-9_-]+\/?$/,
+    
+Matches for Stack Overflow profile pages (e.g. https://stackoverflow.com/users/2544348/marnix-harderwijk)
+
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
 
@@ -82,7 +88,6 @@ I plan on adding the following social media profiles at the moment.
 * wordpress
 * medium
 * youtube
-* stackoverflow
 * bitbucket
  
 Feel free to add any social media site you would like to find here!
