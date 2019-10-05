@@ -27,6 +27,9 @@ RegEx for public URLs.
     http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z0-9_-]+(\/[A-z0-9]+){3}\/?
 Matches public profiles that need three keys(?) after the actual name.
 
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/recruiter\/[A-z0-9_-]+\/?
+RegEx for Linkedin Recruiter URLs.
+
 ### Verification
 Check page for profile specific html (rate limit?)
 
