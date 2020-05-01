@@ -34,7 +34,7 @@ RegEx for Linkedin Recruiter URLs.
 Check page for profile specific html (rate limit?)
 
 ## Facebook
-    http(s)?:\/\/(www\.)?(facebook|fb)\.com\/[A-z0-9_\-\.]+\/?
+    http(s)?:\/\/(www\.)?(facebook|fb)\.com\/[A-z0-9_\\-\\.]+\/?
 Matches facebook.com and fb.com (shortlink).
 
 ### Verification
