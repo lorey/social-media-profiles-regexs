@@ -21,14 +21,28 @@ Regex for pages like someuser.github.io.
 Use https://api.github.com/users/{user_login} (60 requests/hour unauthenticated)
 
 ## Linkedin
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z0-9_-]+\/?
+
+*All patterns assume IGNORECASE(i) flag*
+
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/in\/[\w\-À-ÿ%]+\/?
 RegEx for public URLs.
 
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z0-9_-]+(\/[A-z0-9]+){3}\/?
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[\w\-À-ÿ%]+(\/\w+){3}\/?
 Matches public profiles that need three keys(?) after the actual name.
 
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/recruiter\/[A-z0-9_-]+\/?
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/recruiter\/profile\/\d+,[\w\-]+,[a-z]+\/?
 RegEx for Linkedin Recruiter URLs.
+
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/talent\/profile\/\w+\/?
+RegEx for Linkedin Talent URLs.
+
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/sales\/people\/[\w\-]+,\w*,[\w\-]*\/?
+RegEx for Linkedin Sales URLs.
+
+    http(s)?:\/\/([\w]+\.)?linkedin\.com\/((in\/[\w\-À-ÿ%]+)|(pub\/[\w\-À-ÿ%]+(\/\w+){3})|(recruiter\/profile\/\d+,[\w\-]+,[a-z]+)|(talent\/profile\/\w+)|(sales\/people\/[\w\-]+,\w*,[\w\-]*))\/?
+RegEx combining all Linkedin in types
+
+
 
 ### Verification
 Check page for profile specific html (rate limit?)
