@@ -7,7 +7,7 @@ If you want to extract social media links, there are possibly easier ways:
 * I've created a [Python library called socials](https://github.com/lorey/socials) that uses these expressions to *automate url detection* and extraction.
 You input the urls, it extracts the social media profiles.
 * There's also a [Socials API](https://github.com/lorey/socials-api) you can use for free or deploy yourself.
-You simply input any URL and it will fetch and return all social media links on this website.
+You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
 ## Twitter
     http(s)?:\/\/(.*\.)?twitter\.com\/[A-z0-9_]+\/?
