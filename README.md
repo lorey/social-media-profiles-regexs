@@ -1,7 +1,13 @@
 # Regular Expressions to Match Social Media Profiles
 This repository lists regular expressions to match and extract URLs of social media profiles. For simplicity URLs have to be filtered beforehand, i.e. the regular expression has to be executed on a single URL. To do this, you could use a regular expression matching valid URLs or use a specific library, for example JSOUP for Java. Furthermore, only exact profile urls are matched (for example no profile urls inside a url referencing a post).
 
-Please note: I've also created a [Python library called socials](https://github.com/lorey/socials) that uses these expressions to *automate url detection* and extraction.
+Please note:
+If you want to extract social media links, there are possibly easier ways:
+
+* I've created a [Python library called socials](https://github.com/lorey/socials) that uses these expressions to *automate url detection* and extraction.
+You input the urls, it extracts the social media profiles.
+* There's also a [Socials API](https://github.com/lorey/socials-api) you can use for free or deploy yourself.
+You simply input any URL and it will fetch and return all social media links on this website.
 
 ## Twitter
     http(s)?:\/\/(.*\.)?twitter\.com\/[A-z0-9_]+\/?
