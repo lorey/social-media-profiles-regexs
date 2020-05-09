@@ -1,5 +1,5 @@
 .RECIPEPREFIX = >
 
 all:
-> python generate.py
+> python src/generate.py
 > python -m pytest

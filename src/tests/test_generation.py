@@ -1,4 +1,4 @@
-from generate import render_readme
+from src.generate import render_readme
 
 README_RENDERING_ERR = "README not rendered, please run generate.py and commit"
 
