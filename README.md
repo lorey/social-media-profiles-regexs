@@ -9,6 +9,17 @@ You input the urls, it extracts the social media profiles.
 * There's also a [Socials API](https://github.com/lorey/socials-api) you can use for free or deploy yourself.
 You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
+## Table of Contents
+
+- [twitter](#twitter)
+- [github](#github)
+- [linkedin](#linkedin)
+- [facebook](#facebook)
+- [instagram](#instagram)
+- [google plus](#google-plus)
+- [skype](#skype)
+- [telegram](#telegram)
+- [email](#email)
 
 
 ## twitter
@@ -113,6 +124,7 @@ Matches for t.me, telegram.me and telegram.org.
 mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+)
 ```
 This is for scraping only and in no way usable as a validation.
+
 
 
 ## TODO

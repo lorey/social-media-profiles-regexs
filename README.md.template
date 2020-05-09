@@ -9,8 +9,11 @@ You input the urls, it extracts the social media profiles.
 * There's also a [Socials API](https://github.com/lorey/socials-api) you can use for free or deploy yourself.
 You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
-{% for platform, types in data.items() %}
+## Table of Contents
+{% for platform in data %}
+- [{{ platform }}](#{{ platform|replace(" ", "-") }}){% endfor %}
 
+{% for platform, types in data.items() %}
 ## {{ platform }}
 {% for type in types %}
 ### {{ type }}
@@ -18,7 +21,8 @@ You simply input any URL and it will fetch and return all social media links on 
 {{ data[platform][type].regex }}
 ```
 {{ data[platform][type].note }}
-{% endfor %}{% endfor %}
+{% endfor %}
+{% endfor %}
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
