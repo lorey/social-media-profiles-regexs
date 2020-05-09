@@ -103,7 +103,16 @@ Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs]
 ```regex
 https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<username>[a-z0-9\_]{5,32})\/?
 ```
-Matches for t.me, telegram.me and telegram.org
+Matches for t.me, telegram.me and telegram.org.
+
+
+## email
+
+### mailto
+```regex
+mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+)
+```
+This is for scraping only and in no way usable as a validation.
 
 
 ## TODO

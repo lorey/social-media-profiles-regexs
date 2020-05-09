@@ -120,10 +120,21 @@
   "telegram": {
     "profile": {
       "regex": "https?:\\/\\/(?:t(?:elegram)?\\.me|telegram\\.org)\\/(?P<username>[a-z0-9\\_]{5,32})\\/?",
-      "note": "Matches for t.me, telegram.me and telegram.org",
+      "note": "Matches for t.me, telegram.me and telegram.org.",
       "tests": {
         "https://t.me/peterparker": {
           "username": "peterparker"
+        }
+      }
+    }
+  },
+  "email": {
+    "mailto": {
+      "regex": "mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\\.[A-z]+)",
+      "note": "This is for scraping only and in no way usable as a validation.",
+      "tests": {
+        "mailto:git@karllorey.com": {
+          "email": "git@karllorey.com"
         }
       }
     }
