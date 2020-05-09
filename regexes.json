@@ -135,6 +135,9 @@
       "tests": {
         "mailto:git@karllorey.com": {
           "email": "git@karllorey.com"
+        },
+        "mailto:plususer+test@gmail.com": {
+          "email": "plususer+test@gmail.com"
         }
       }
     }
