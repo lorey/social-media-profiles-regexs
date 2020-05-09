@@ -16,7 +16,7 @@
   },
   "github": {
     "user": {
-      "regex": "https?:\\/\\/(www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/?",
+      "regex": "https?:\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/?",
       "note": "Exclude subdomains other than `www.` as these redirect to github pages sometimes.",
       "tests": {
         "https://github.com/lorey/": {
@@ -26,7 +26,7 @@
       }
     },
     "repo": {
-      "regex": "https?:\\/\\/(www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)/?",
+      "regex": "https?:\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)/?",
       "note": "Exclude subdomains as these redirect to github pages sometimes.",
       "tests": {
         "https://github.com/lorey/": null,
@@ -39,7 +39,7 @@
   },
   "linkedin": {
     "regular": {
-      "regex": "https?:\\/\\/([\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[A-z0-9_-]+)\\/?",
+      "regex": "https?:\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[A-z0-9_-]+)\\/?",
       "note": "These are the currently used, most-common urls ending in /in/<permalink>",
       "tests": {
         "https://linkedin.com/in/karllorey": {
@@ -48,7 +48,7 @@
       }
     },
     "pub": {
-      "regex": "https?:\\/\\/(www)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(\\/[A-z0-9]+){3}\\/?",
+      "regex": "https?:\\/\\/(?:www)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(?:\\/[A-z0-9]+){3}\\/?",
       "note": "These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)",
       "tests": {
         "https://linkedin.com/pub/karllorey/abc/123/be": {
@@ -59,7 +59,7 @@
   },
   "facebook": {
     "profile": {
-      "regex": "https?:\\/\\/(www\\.)?(facebook|fb)\\.com\\/(?P<profile>[A-z0-9_\\-\\.]+)\\/?",
+      "regex": "https?:\\/\\/(?:www\\.)?(?:facebook|fb)\\.com\\/(?P<profile>[A-z0-9_\\-\\.]+)\\/?",
       "note": "A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile",
       "tests": {
         "https://facebook.com/peter.parker": {
@@ -70,7 +70,7 @@
   },
   "instagram": {
     "profile": {
-      "regex": "https?:\\/\\/(www\\.)?instagram\\.com\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
+      "regex": "https?:\\/\\/(?:www\\.)?instagram\\.com\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
       "note": "The rules:\n\n* Matches with one . in them disco.dude but not two .. disco..dude\n* Ending period not matched discodude.\n* Match underscores _disco__dude\n* Max characters of 30 1234567890123456789012345678901234567890",
       "tests": {
         "https://instagram.com/disco..dude": null,
@@ -119,7 +119,7 @@
   },
   "telegram": {
     "profile": {
-      "regex": "https?:\\/\\/(t(elegram)?\\.me|telegram\\.org)\\/(?P<username>[a-z0-9\\_]{5,32})\\/?",
+      "regex": "https?:\\/\\/(?:t(?:elegram)?\\.me|telegram\\.org)\\/(?P<username>[a-z0-9\\_]{5,32})\\/?",
       "note": "Matches for t.me, telegram.me and telegram.org",
       "tests": {
         "https://t.me/peterparker": {

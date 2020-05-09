@@ -23,6 +23,7 @@ def test_regex(regex, url, matches):
     if matches:
         # there's an expected results, i.e. the dict is not None
         assert fullmatch is not None, "Regex did not match at all"
+        assert len(fullmatch.groups()) == len(matches), "Regex has more than expected capturing groups"
         for name, match in matches.items():
             assert fullmatch.group(name) == match, "Group %s invalid" % name
     else:

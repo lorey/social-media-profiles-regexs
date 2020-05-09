@@ -24,13 +24,13 @@ Allowed for usernames are alphanumeric characters and underscores.
 
 ### user
 ```regex
-https?:\/\/(www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/?
+https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/?
 ```
 Exclude subdomains other than `www.` as these redirect to github pages sometimes.
 
 ### repo
 ```regex
-https?:\/\/(www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)/?
+https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)/?
 ```
 Exclude subdomains as these redirect to github pages sometimes.
 
@@ -39,13 +39,13 @@ Exclude subdomains as these redirect to github pages sometimes.
 
 ### regular
 ```regex
-https?:\/\/([\w]+\.)?linkedin\.com\/in\/(?P<permalink>[A-z0-9_-]+)\/?
+https?:\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<permalink>[A-z0-9_-]+)\/?
 ```
 These are the currently used, most-common urls ending in /in/<permalink>
 
 ### pub
 ```regex
-https?:\/\/(www)?linkedin\.com\/pub\/(?P<permalink_pub>[A-z0-9_-]+)(\/[A-z0-9]+){3}\/?
+https?:\/\/(?:www)?linkedin\.com\/pub\/(?P<permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?
 ```
 These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)
 
@@ -54,7 +54,7 @@ These are old public urls not used anymore, more info at [quora](https://www.quo
 
 ### profile
 ```regex
-https?:\/\/(www\.)?(facebook|fb)\.com\/(?P<profile>[A-z0-9_\-\.]+)\/?
+https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<profile>[A-z0-9_\-\.]+)\/?
 ```
 A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
 
@@ -63,7 +63,7 @@ A profile can be a page, a user profile, or something else. Since Facebook redir
 
 ### profile
 ```regex
-https?:\/\/(www\.)?instagram\.com\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)
+https?:\/\/(?:www\.)?instagram\.com\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)
 ```
 The rules:
 
@@ -101,7 +101,7 @@ Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs]
 
 ### profile
 ```regex
-https?:\/\/(t(elegram)?\.me|telegram\.org)\/(?P<username>[a-z0-9\_]{5,32})\/?
+https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<username>[a-z0-9\_]{5,32})\/?
 ```
 Matches for t.me, telegram.me and telegram.org
 
