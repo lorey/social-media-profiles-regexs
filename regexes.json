@@ -1,0 +1,131 @@
+{
+  "twitter": {
+    "user": {
+      "regex": "https?:\\/\\/[.*\\.]?twitter\\.com\\/(?P<username>[A-z0-9_]+)\\/?",
+      "note": "Allowed for usernames are alphanumeric characters and underscores.",
+      "tests": {
+        "https://twitter.com/karllorey": {
+          "username": "karllorey"
+        },
+        "http://twitter.com/karllorey": {
+          "username": "karllorey"
+        },
+        "htt://twitter.com/karllorey": null
+      }
+    }
+  },
+  "github": {
+    "user": {
+      "regex": "https?:\\/\\/(www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/?",
+      "note": "Exclude subdomains other than `www.` as these redirect to github pages sometimes.",
+      "tests": {
+        "https://github.com/lorey/": {
+          "login": "lorey"
+        },
+        "https://github.com/lorey/socials": null
+      }
+    },
+    "repo": {
+      "regex": "https?:\\/\\/(www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)/?",
+      "note": "Exclude subdomains as these redirect to github pages sometimes.",
+      "tests": {
+        "https://github.com/lorey/": null,
+        "https://github.com/lorey/socials": {
+          "login": "lorey",
+          "repo": "socials"
+        }
+      }
+    }
+  },
+  "linkedin": {
+    "regular": {
+      "regex": "https?:\\/\\/([\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[A-z0-9_-]+)\\/?",
+      "note": "These are the currently used, most-common urls ending in /in/<permalink>",
+      "tests": {
+        "https://linkedin.com/in/karllorey": {
+          "permalink": "karllorey"
+        }
+      }
+    },
+    "pub": {
+      "regex": "https?:\\/\\/(www)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(\\/[A-z0-9]+){3}\\/?",
+      "note": "These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)",
+      "tests": {
+        "https://linkedin.com/pub/karllorey/abc/123/be": {
+          "permalink_pub": "karllorey"
+        }
+      }
+    }
+  },
+  "facebook": {
+    "profile": {
+      "regex": "https?:\\/\\/(www\\.)?(facebook|fb)\\.com\\/(?P<profile>[A-z0-9_\\-\\.]+)\\/?",
+      "note": "A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile",
+      "tests": {
+        "https://facebook.com/peter.parker": {
+          "profile": "peter.parker"
+        }
+      }
+    }
+  },
+  "instagram": {
+    "profile": {
+      "regex": "https?:\\/\\/(www\\.)?instagram\\.com\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
+      "note": "The rules:\n\n* Matches with one . in them disco.dude but not two .. disco..dude\n* Ending period not matched discodude.\n* Match underscores _disco__dude\n* Max characters of 30 1234567890123456789012345678901234567890",
+      "tests": {
+        "https://instagram.com/disco..dude": null,
+        "https://instagram.com/disco.dude": {
+          "username": "disco.dude"
+        },
+        "https://instagram.com/__disco__dude": {
+          "username": "__disco__dude"
+        }
+      }
+    }
+  },
+  "google plus": {
+    "username": {
+      "regex": "https?:\\/\\/plus\\.google\\.com\\/\\+(?P<username>[A-z0-9+]+)",
+      "note": "Matches username.",
+      "tests": {
+        "https://plus.google.com/+googleplususername": {
+          "username": "googleplususername"
+        }
+      }
+    },
+    "user id": {
+      "regex": "https?:\\/\\/plus\\.google\\.com\\/(?P<id>[0-9]{21})",
+      "note": "Matches profile numbers with exactly 21 digits.",
+      "tests": {
+        "https://plus.google.com/111111111111111111111": {
+          "id": "111111111111111111111"
+        }
+      }
+    }
+  },
+  "skype": {
+    "profile": {
+      "regex": "(?:(?:callto|skype):)(?P<username>[a-z][a-z0-9\\\\.,\\\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?",
+      "note": "Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs](https://docs.microsoft.com/en-us/skype-sdk/skypeuris/skypeuris).",
+      "tests": {
+        "skype:echo123?call": {
+          "username": "echo123"
+        },
+        "skype:echo123": {
+          "username": "echo123"
+        }
+      }
+    }
+  },
+  "telegram": {
+    "profile": {
+      "regex": "https?:\\/\\/(t(elegram)?\\.me|telegram\\.org)\\/(?P<username>[a-z0-9\\_]{5,32})\\/?",
+      "note": "Matches for t.me, telegram.me and telegram.org",
+      "tests": {
+        "https://t.me/peterparker": {
+          "username": "peterparker"
+        }
+      }
+    }
+  }
+}

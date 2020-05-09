@@ -9,77 +9,102 @@ You input the urls, it extracts the social media profiles.
 * There's also a [Socials API](https://github.com/lorey/socials-api) you can use for free or deploy yourself.
 You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
-## Twitter
-    http(s)?:\/\/(.*\.)?twitter\.com\/[A-z0-9_]+\/?
-Allowed for usernames are alphanumeric characters and underscores. 
 
-### Verification
-Send request to page and check for username in answer (rate limit?)
 
-## Github
-    http(s)?:\/\/(www\.)?github\.com\/[A-z0-9_-]+\/?
+## twitter
+
+### user
+```regex
+https?:\/\/[.*\.]?twitter\.com\/(?P<username>[A-z0-9_]+)\/?
+```
+Allowed for usernames are alphanumeric characters and underscores.
+
+
+## github
+
+### user
+```regex
+https?:\/\/(www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/?
+```
+Exclude subdomains other than `www.` as these redirect to github pages sometimes.
+
+### repo
+```regex
+https?:\/\/(www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)/?
+```
 Exclude subdomains as these redirect to github pages sometimes.
 
-    http(s)?:\/\/([A-z0-9-_]+)\.github\.(com|io)\/?
-Regex for pages like someuser.github.io.
 
-### Verification
-Use https://api.github.com/users/{user_login} (60 requests/hour unauthenticated)
+## linkedin
 
-## Linkedin
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z0-9_-]+\/?
-RegEx for public URLs.
+### regular
+```regex
+https?:\/\/([\w]+\.)?linkedin\.com\/in\/(?P<permalink>[A-z0-9_-]+)\/?
+```
+These are the currently used, most-common urls ending in /in/<permalink>
 
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/pub\/[A-z0-9_-]+(\/[A-z0-9]+){3}\/?
-Matches public profiles that need three keys(?) after the actual name.
+### pub
+```regex
+https?:\/\/(www)?linkedin\.com\/pub\/(?P<permalink_pub>[A-z0-9_-]+)(\/[A-z0-9]+){3}\/?
+```
+These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)
 
-    http(s)?:\/\/([\w]+\.)?linkedin\.com\/recruiter\/[A-z0-9_-]+\/?
-RegEx for Linkedin Recruiter URLs.
 
-### Verification
-Check page for profile specific html (rate limit?)
+## facebook
 
-## Facebook
-    http(s)?:\/\/(www\.)?(facebook|fb)\.com\/[A-z0-9_\-\.]+\/?
-Matches facebook.com and fb.com (shortlink).
+### profile
+```regex
+https?:\/\/(www\.)?(facebook|fb)\.com\/(?P<profile>[A-z0-9_\-\.]+)\/?
+```
+A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
 
-### Verification
-Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verifiy that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
 
-#### API
-http://graph.facebook.com/v2.3/{{username}} gives the following result, if the user exists:
+## instagram
 
-    {
-        "error": {
-        "message": "(#803) Cannot query users by their username ({{specified username}})",
-        "type": "OAuthException",
-        "code": 803
-        }
-    }
-
-#### GET request
-A GET request on an existing (but hidden) user with a randomly added point seems to redirect to the real username.
-## Instagram
-    https?:\/\/(www\.)?instagram\.com\/([A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)
-
+### profile
+```regex
+https?:\/\/(www\.)?instagram\.com\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?)
+```
 The rules:
- * Matches with one . in them disco.dude but not two .. disco..dude
- * Ending period not matched discodude.
- * Match underscores _ _disco__dude_
- * Max characters of 30 1234567890123456789012345678901234567890
 
-## Google Plus
-    https?:\/\/plus\.google\.com\/\+[^/]+|\d{21}
+* Matches with one . in them disco.dude but not two .. disco..dude
+* Ending period not matched discodude.
+* Match underscores _disco__dude
+* Max characters of 30 1234567890123456789012345678901234567890
 
-Matches username or profile numbers up to 21 digits.
 
-## Skype
-    (?:(?:callto|skype):)(?:[a-z][a-z0-9\\.,\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?
+## google plus
 
-Matches Skype's URLs to add contact, call, chat.
-## Telegram
-    https?:\/\/(t(elegram)?\.me|telegram\.org)\/([a-z0-9\_]{5,32})\/?
+### username
+```regex
+https?:\/\/plus\.google\.com\/\+(?P<username>[A-z0-9+]+)
+```
+Matches username.
+
+### user id
+```regex
+https?:\/\/plus\.google\.com\/(?P<id>[0-9]{21})
+```
+Matches profile numbers with exactly 21 digits.
+
+
+## skype
+
+### profile
+```regex
+(?:(?:callto|skype):)(?P<username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\?(?:add|call|chat|sendfile|userinfo))?
+```
+Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs](https://docs.microsoft.com/en-us/skype-sdk/skypeuris/skypeuris).
+
+
+## telegram
+
+### profile
+```regex
+https?:\/\/(t(elegram)?\.me|telegram\.org)\/(?P<username>[a-z0-9\_]{5,32})\/?
+```
 Matches for t.me, telegram.me and telegram.org
+
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
@@ -93,5 +118,5 @@ I plan on adding the following social media profiles at the moment.
 * youtube
 * stackoverflow
 * bitbucket
- 
+
 Feel free to add any social media site you would like to find here!
