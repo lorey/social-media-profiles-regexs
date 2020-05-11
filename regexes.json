@@ -286,5 +286,13 @@
         "https://reddit.com/r/de": null
       }
     }
+  },
+  "snapchat": {
+    "profile": {
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?snapchat\\.com\\/add\\/(?P<username>[A-z0-9\\.\\_\\-]+)\\/?",
+      "tests": {
+        "https://www.snapchat.com/add/peterparker": {"username": "peterparker"}
+      }
+    }
   }
 }
