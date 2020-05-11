@@ -140,7 +140,7 @@
   },
   "skype": {
     "profile": {
-      "regex": "(?:(?:callto|skype):)(?P<username>[a-z][a-z0-9\\\\.,\\\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?",
+      "regex": "(?:(?:callto|skype):)(?P<username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\\?(?:add|call|chat|sendfile|userinfo))?",
       "note": "Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs](https://docs.microsoft.com/en-us/skype-sdk/skypeuris/skypeuris).",
       "tests": {
         "skype:echo123?call": {

@@ -3,6 +3,9 @@ from json import JSONDecoder
 
 from jinja2 import Template
 
+README = "README.md"
+README_TEMPLATE = "README.template.md"
+
 
 def generate_readme():
     """
@@ -12,12 +15,12 @@ def generate_readme():
     readme_rendered = render_readme()
 
     # store it as README.md
-    with open("README.md", "w") as output_file:
+    with open(README, "w") as output_file:
         output_file.write(readme_rendered)
 
 
 def render_readme() -> str:
-    with open("README.md.template") as template_file:
+    with open(README_TEMPLATE) as template_file:
         template_content = template_file.read()
 
     regexes = read_regex_data()

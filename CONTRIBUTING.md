@@ -19,8 +19,12 @@ pip install -r requirements.txt
 - To add or change a regex, edit [regexes.json](regexes.json). 
   Please use a capture group to extract contained information like usernames.
   Also add tests to make sure everything works as expected.
-- To update meta-information edit the template [README.md.template](README.md.template)
+  Note that JSON requires double escaping for backslashes, 
+  so for a literal dot `\.` you'll need `\\.` inside the json file, 
+  e.g. `example.com\\/index\\.html` to match `example.com/index.html` literally.
+- To update meta-information edit the template [README.template.md](README.template.md)
 
 After you're done, please run `make`.
-It will test your changes and generate the README.md file.
+It will test your changes and generate the `README.md` file.
+
 Please open a PR only after you followed these instructions.
