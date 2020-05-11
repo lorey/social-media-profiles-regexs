@@ -62,14 +62,37 @@
   },
   "facebook": {
     "profile": {
-      "regex": "https?:\\/\\/(?:www\\.)?(?:facebook|fb)\\.com\\/(?P<profile>[A-z0-9_\\-\\.]+)\\/?",
+      "regex": "https?:\\/\\/(?:www\\.)?(?:facebook|fb)\\.com\\/(?P<profile>(?![A-z]+\\.php)(?!marketplace|gaming|watch|me|messages|help|search|groups)[A-z0-9_\\-\\.]+)\\/?",
       "note": "A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile",
       "tests": {
+        "https://facebook.com/peterparker": {
+          "profile": "peterparker"
+        },
         "https://facebook.com/peter.parker": {
           "profile": "peter.parker"
         },
         "http://fb.com/peter_parker-miller": {
           "profile": "peter_parker-miller"
+        },
+        "https://facebook.com/home.php": null,
+        "https://facebook.com/marketplace": null,
+        "https://facebook.com/gaming": null,
+        "https://facebook.com/watch": null,
+        "https://facebook.com/me": null,
+        "https://facebook.com/messages": null,
+        "https://facebook.com/help": null,
+        "https://facebook.com/search": null,
+        "https://facebook.com/groups": null
+      }
+    },
+    "profile by id": {
+      "regex": "https?:\\/\\/(?:www\\.)facebook.com/(?:profile.php\\?id=)?(?P<id>[0-9]+)",
+      "tests": {
+        "https://www.facebook.com/profile.php?id=100004123456789": {
+          "id": "100004123456789"
+        },
+        "https://www.facebook.com/100004123456789": {
+          "id": "100004123456789"
         }
       }
     }
@@ -254,8 +277,12 @@
     "user": {
       "regex": "https?:\\/\\/(?:[a-z]+\\.)?reddit\\.com\\/(?:u(?:ser)?)\\/(?P<username>[A-z0-9\\-\\_]*)\\/?",
       "tests": {
-        "https://old.reddit.com/user/ar-guetita": {"username": "ar-guetita"},
-        "https://reddit.com/u/ar-guetita": {"username": "ar-guetita"},
+        "https://old.reddit.com/user/ar-guetita": {
+          "username": "ar-guetita"
+        },
+        "https://reddit.com/u/ar-guetita": {
+          "username": "ar-guetita"
+        },
         "https://reddit.com/r/de": null
       }
     }
