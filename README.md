@@ -10,7 +10,6 @@ You input the urls, it extracts the social media profiles.
 You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
 ## Table of Contents
-
 - [twitter](#twitter)
 - [github](#github)
 - [linkedin](#linkedin)
@@ -22,6 +21,8 @@ You simply input any URL and it will fetch and return all social media links on 
 - [email](#email)
 - [phone](#phone)
 - [stackoverflow](#stackoverflow)
+- [Monster Regex](monster-regex)
+
 
 
 ## twitter
@@ -151,7 +152,27 @@ https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<question_id>[0-9]+)\/(?P
 ```
 
 
+## Monster Regex
+If you want to match all social media profiles with one regex, use this monster:
 
+```regex
+(?P<twitter_user>https?:\/\/(?:[A-z]+\.)?twitter\.com\/(?P<username>[A-z0-9_]+)\/?)
+|(?P<github_user>https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/?)
+|(?P<github_repo>https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)/?)
+|(?P<linkedin_regular>https?:\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<permalink>[A-z0-9_-]+)\/?)
+|(?P<linkedin_pub>https?:\/\/(?:www)?linkedin\.com\/pub\/(?P<permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?)
+|(?P<facebook_profile>https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<profile>[A-z0-9_\-\.]+)\/?)
+|(?P<instagram_profile>https?:\/\/(?:www\.)?instagram\.com\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?))
+|(?P<google plus_username>https?:\/\/plus\.google\.com\/\+(?P<username>[A-z0-9+]+))
+|(?P<google plus_user id>https?:\/\/plus\.google\.com\/(?P<id>[0-9]{21}))
+|(?P<skype_profile>(?:(?:callto|skype):)(?P<username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\?(?:add|call|chat|sendfile|userinfo))?)
+|(?P<telegram_profile>https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<username>[a-z0-9\_]{5,32})\/?)
+|(?P<email_mailto>mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+))
+|(?P<phone_phone number>(?:tel|phone|mobile):(?P<number>\+?[0-9. -]+))
+|(?P<stackoverflow_user>https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<user_id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?)
+|(?P<stackoverflow_question>https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<question_id>[0-9]+)\/(?P<title>[A-z0-9-_.]+)\/?)
+
+```
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)

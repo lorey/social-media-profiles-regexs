@@ -10,8 +10,11 @@ You input the urls, it extracts the social media profiles.
 You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
 ## Table of Contents
-{% for platform in data %}
-- [{{ platform }}](#{{ platform|replace(" ", "-") }}){% endfor %}
+{% for platform in data -%}
+- [{{ platform }}](#{{ platform|replace(" ", "-") }})
+{% endfor -%}
+- [Monster Regex](monster-regex)
+
 
 {% for platform, types in data.items() %}
 ## {{ platform }}
@@ -22,7 +25,15 @@ You simply input any URL and it will fetch and return all social media links on 
 ```
 {{ data[platform][type].note }}
 {% endfor %}
-{% endfor %}
+{% endfor -%}
+
+## Monster Regex
+If you want to match all social media profiles with one regex, use this monster:
+
+```regex
+{{ monster_regex }}
+
+```
 
 ## TODO
 * Verification checks (ideas first and maybe scripts at a later point)
