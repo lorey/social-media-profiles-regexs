@@ -165,7 +165,8 @@
         "https://stackoverflow.com/users/12345/lorey": {
           "id": "12345",
           "username": "lorey"
-        }
+        },
+        "https://ru.stackoverflow.com/users/12345/lorey": null
       }
     },
     "question": {
