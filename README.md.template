@@ -13,7 +13,7 @@ You simply input any URL and it will fetch and return all social media links on 
 {% for platform in data -%}
 - [{{ platform }}](#{{ platform|replace(" ", "-") }})
 {% endfor -%}
-- [Monster Regex](monster-regex)
+- [Monster Regex](#monster-regex)
 
 
 {% for platform, types in data.items() %}

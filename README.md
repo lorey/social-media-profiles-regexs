@@ -21,7 +21,7 @@ You simply input any URL and it will fetch and return all social media links on 
 - [email](#email)
 - [phone](#phone)
 - [stackoverflow](#stackoverflow)
-- [Monster Regex](monster-regex)
+- [Monster Regex](#monster-regex)
 
 
 
