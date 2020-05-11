@@ -26,7 +26,7 @@
       }
     },
     "repo": {
-      "regex": "https?:\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)/?",
+      "regex": "https?:\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)\\/?",
       "note": "Exclude subdomains as these redirect to github pages sometimes.",
       "tests": {
         "https://github.com/lorey/": null,
@@ -159,20 +159,20 @@
   },
   "stackoverflow": {
     "user": {
-      "regex": "https?:\\/\\/(?:www\\.)?stackoverflow\\.com\\/users\\/(?P<user_id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
+      "regex": "https?:\\/\\/(?:www\\.)?stackoverflow\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
       "note": "Username can be changed at any time, user_id is persistent.",
       "tests": {
         "https://stackoverflow.com/users/12345/lorey": {
-          "user_id": "12345",
+          "id": "12345",
           "username": "lorey"
         }
       }
     },
     "question": {
-      "regex": "https?:\\/\\/(?:www\\.)?stackoverflow\\.com\\/questions\\/(?P<question_id>[0-9]+)\\/(?P<title>[A-z0-9-_.]+)\\/?",
+      "regex": "https?:\\/\\/(?:www\\.)?stackoverflow\\.com\\/questions\\/(?P<id>[0-9]+)\\/(?P<title>[A-z0-9-_.]+)\\/?",
       "tests": {
         "https://stackoverflow.com/questions/12345/how-to-embed": {
-          "question_id": "12345",
+          "id": "12345",
           "title": "how-to-embed"
         }
       }

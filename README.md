@@ -44,7 +44,7 @@ Exclude subdomains other than `www.` as these redirect to github pages sometimes
 
 ### repo
 ```regex
-https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)/?
+https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)\/?
 ```
 Exclude subdomains as these redirect to github pages sometimes.
 
@@ -142,13 +142,13 @@ Should be cleaned afterwards to strip dots, spaces, etc.
 
 ### user
 ```regex
-https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<user_id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
+https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
 ```
 Username can be changed at any time, user_id is persistent.
 
 ### question
 ```regex
-https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<question_id>[0-9]+)\/(?P<title>[A-z0-9-_.]+)\/?
+https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<id>[0-9]+)\/(?P<title>[A-z0-9-_.]+)\/?
 ```
 
 
@@ -156,21 +156,7 @@ https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<question_id>[0-9]+)\/(?P
 If you want to match all social media profiles with one regex, use this monster:
 
 ```regex
-(?P<twitter_user>https?:\/\/(?:[A-z]+\.)?twitter\.com\/(?P<username>[A-z0-9_]+)\/?)
-|(?P<github_user>https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/?)
-|(?P<github_repo>https?:\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/(?P<repo>[A-z0-9_-]+)/?)
-|(?P<linkedin_regular>https?:\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<permalink>[A-z0-9_-]+)\/?)
-|(?P<linkedin_pub>https?:\/\/(?:www)?linkedin\.com\/pub\/(?P<permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?)
-|(?P<facebook_profile>https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<profile>[A-z0-9_\-\.]+)\/?)
-|(?P<instagram_profile>https?:\/\/(?:www\.)?instagram\.com\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?))
-|(?P<google plus_username>https?:\/\/plus\.google\.com\/\+(?P<username>[A-z0-9+]+))
-|(?P<google plus_user id>https?:\/\/plus\.google\.com\/(?P<id>[0-9]{21}))
-|(?P<skype_profile>(?:(?:callto|skype):)(?P<username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\?(?:add|call|chat|sendfile|userinfo))?)
-|(?P<telegram_profile>https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<username>[a-z0-9\_]{5,32})\/?)
-|(?P<email_mailto>mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+))
-|(?P<phone_phone number>(?:tel|phone|mobile):(?P<number>\+?[0-9. -]+))
-|(?P<stackoverflow_user>https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<user_id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?)
-|(?P<stackoverflow_question>https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<question_id>[0-9]+)\/(?P<title>[A-z0-9-_.]+)\/?)
+(?P<twitter__user>https?:\/\/(?:[A-z]+\.)?twitter\.com\/(?P<twitter__user__username>[A-z0-9_]+)\/?)|(?P<github__user>https?:\/\/(?:www\.)?github\.com\/(?P<github__user__login>[A-z0-9_-]+)\/?)|(?P<github__repo>https?:\/\/(?:www\.)?github\.com\/(?P<github__repo__login>[A-z0-9_-]+)\/(?P<github__repo__repo>[A-z0-9_-]+)\/?)|(?P<linkedin__regular>https?:\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<linkedin__regular__permalink>[A-z0-9_-]+)\/?)|(?P<linkedin__pub>https?:\/\/(?:www)?linkedin\.com\/pub\/(?P<linkedin__pub__permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?)|(?P<facebook__profile>https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<facebook__profile__profile>[A-z0-9_\-\.]+)\/?)|(?P<instagram__profile>https?:\/\/(?:www\.)?instagram\.com\/(?P<instagram__profile__username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?))|(?P<google_plus__username>https?:\/\/plus\.google\.com\/\+(?P<google_plus__username__username>[A-z0-9+]+))|(?P<google_plus__user_id>https?:\/\/plus\.google\.com\/(?P<google_plus__user_id__id>[0-9]{21}))|(?P<skype__profile>(?:(?:callto|skype):)(?P<skype__profile__username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\?(?:add|call|chat|sendfile|userinfo))?)|(?P<telegram__profile>https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<telegram__profile__username>[a-z0-9\_]{5,32})\/?)|(?P<email__mailto>mailto:(?P<email__mailto__email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+))|(?P<phone__phone_number>(?:tel|phone|mobile):(?P<phone__phone_number__number>\+?[0-9. -]+))|(?P<stackoverflow__user>https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<stackoverflow__user__id>[0-9]+)\/(?P<stackoverflow__user__username>[A-z0-9-_.]+)\/?)|(?P<stackoverflow__question>https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<stackoverflow__question__id>[0-9]+)\/(?P<stackoverflow__question__title>[A-z0-9-_.]+)\/?)
 
 ```
 

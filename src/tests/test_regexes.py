@@ -3,10 +3,14 @@ import re
 
 import pytest
 
+from src.generate import read_regex_data, generate_monster_regex
+
 
 def make_testdata():
-    with open("regexes.json") as regexes_file:
-        data = json.load(regexes_file)
+    """
+    Load the test data.
+    """
+    data = read_regex_data()
     for platform, types in data.items():
         for type, type_def in types.items():
             if "tests" in type_def:
@@ -18,6 +22,12 @@ def make_testdata():
 
 @pytest.mark.parametrize("regex,url,matches", make_testdata())
 def test_regex(regex, url, matches):
+    """
+    Test a single regex.
+    :param regex: regex to test.
+    :param url: url applied as test case.
+    :param matches: expected matches as a dict<name:value> or None if invalid url
+    """
     fullmatch = re.fullmatch(regex, url)
     if matches:
         # there's an expected results, i.e. the dict is not None
@@ -28,3 +38,16 @@ def test_regex(regex, url, matches):
     else:
         # no dict, assert no match
         assert fullmatch is None
+
+
+def test_monster_regex():
+    """
+    Make sure monster regex matches all tests of all regexes.
+    """
+    data = read_regex_data()
+    regex = re.compile(generate_monster_regex())
+    for platform, types in data.items():
+        for type, type_def in types.items():
+            for url, matches in type_def["tests"].items():
+                if matches:
+                    assert regex.match(url), "url %s does not match" % url

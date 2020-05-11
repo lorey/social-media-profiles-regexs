@@ -36,9 +36,15 @@ def generate_monster_regex() -> str:
     for platform in regex_data:
         for type_ in regex_data[platform]:
             regex_ = regex_data[platform][type_]["regex"]
-            regex_qual = "(?P<%s_%s>%s)" % (platform, type_, regex_)
-            regexes_qual.append(regex_qual)
-    return "\n|".join(regexes_qual)
+
+            # name is platform__some_type, e.g. facebook__company_profile
+            group_name = (platform + "__" + type_).replace(" ", "_")
+            subgroup_prefix = group_name + "__"
+
+            # create regex with fully qualified and thus unique groups
+            regex_qual = regex_.replace("?P<", "?P<" + subgroup_prefix)
+            regexes_qual.append("(?P<%s>%s)" % (group_name, regex_qual))
+    return "|".join(regexes_qual)
 
 
 def read_regex_data() -> dict:
