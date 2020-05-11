@@ -21,6 +21,7 @@ You simply input any URL and it will fetch and return all social media links on 
 - [telegram](#telegram)
 - [email](#email)
 - [phone](#phone)
+- [stackoverflow](#stackoverflow)
 
 
 ## twitter
@@ -134,6 +135,21 @@ This is for scraping only and in no way usable as a validation.
 (?:tel|phone|mobile):(?P<number>\+?[0-9. -]+)
 ```
 Should be cleaned afterwards to strip dots, spaces, etc.
+
+
+## stackoverflow
+
+### user
+```regex
+https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<user_id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
+```
+Username can be changed at any time, user_id is persistent.
+
+### question
+```regex
+https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<question_id>[0-9]+)\/(?P<title>[A-z0-9-_.]+)\/?
+```
+
 
 
 
