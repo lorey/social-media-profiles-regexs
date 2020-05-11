@@ -76,7 +76,7 @@
   },
   "instagram": {
     "profile": {
-      "regex": "https?:\\/\\/(?:www\\.)?instagram\\.com\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
+      "regex": "https?:\\/\\/(?:www\\.)?(?:instagram\\.com|instagr\\.am)\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
       "note": "The rules:\n\n* Matches with one . in them disco.dude but not two .. disco..dude\n* Ending period not matched discodude.\n* Match underscores _disco__dude\n* Max characters of 30 1234567890123456789012345678901234567890",
       "tests": {
         "https://instagram.com/disco..dude": null,
@@ -84,6 +84,9 @@
           "username": "disco.dude"
         },
         "https://instagram.com/__disco__dude": {
+          "username": "__disco__dude"
+        },
+        "https://www.instagr.am/__disco__dude": {
           "username": "__disco__dude"
         }
       }
