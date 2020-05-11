@@ -246,5 +246,15 @@
         }
       }
     }
+  },
+  "reddit": {
+    "user": {
+      "regex": "https?:\\/\\/(?:[a-z]+\\.)?reddit\\.com\\/(?:u(?:ser)?)\\/(?P<username>[A-z0-9\\-\\_]*)\\/?",
+      "tests": {
+        "https://old.reddit.com/user/ar-guetita": {"username": "ar-guetita"},
+        "https://reddit.com/u/ar-guetita": {"username": "ar-guetita"},
+        "https://reddit.com/r/de": null
+      }
+    }
   }
 }
