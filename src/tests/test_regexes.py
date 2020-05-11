@@ -40,6 +40,13 @@ def test_regex(regex, url, matches):
         assert fullmatch is None
 
 
+@pytest.mark.parametrize("regex,url,matches", make_testdata())
+def test_regex_without_protocol(regex, url, matches):
+    # take the url and remove protocol
+    url_without_protocol = url.replace('http:', '').replace("https:", "")
+    test_regex(regex, url_without_protocol, matches)
+
+
 def test_monster_regex():
     """
     Make sure monster regex matches all tests of all regexes.

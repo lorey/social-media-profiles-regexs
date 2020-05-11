@@ -1,7 +1,7 @@
 {
   "twitter": {
     "user": {
-      "regex": "https?:\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/(?P<username>[A-z0-9_]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/(?P<username>[A-z0-9_]+)\\/?",
       "note": "Allowed for usernames are alphanumeric characters and underscores.",
       "tests": {
         "https://twitter.com/karllorey": {
@@ -16,7 +16,7 @@
   },
   "github": {
     "user": {
-      "regex": "https?:\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/?",
       "note": "Exclude subdomains other than `www.` as these redirect to github pages sometimes.",
       "tests": {
         "https://github.com/lorey/": {
@@ -26,7 +26,7 @@
       }
     },
     "repo": {
-      "regex": "https?:\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?github\\.com\\/(?P<login>[A-z0-9_-]+)\\/(?P<repo>[A-z0-9_-]+)\\/?",
       "note": "Exclude subdomains as these redirect to github pages sometimes.",
       "tests": {
         "https://github.com/lorey/": null,
@@ -39,7 +39,7 @@
   },
   "linkedin": {
     "regular": {
-      "regex": "https?:\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[\\w\\-\\_À-ÿ%]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[\\w\\-\\_À-ÿ%]+)\\/?",
       "note": "These are the currently used, most-common urls ending in /in/<permalink>",
       "tests": {
         "https://linkedin.com/in/karllorey": {
@@ -51,7 +51,7 @@
       }
     },
     "pub": {
-      "regex": "https?:\\/\\/(?:www)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(?:\\/[A-z0-9]+){3}\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(?:\\/[A-z0-9]+){3}\\/?",
       "note": "These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)",
       "tests": {
         "https://linkedin.com/pub/karllorey/abc/123/be": {
@@ -62,7 +62,7 @@
   },
   "facebook": {
     "profile": {
-      "regex": "https?:\\/\\/(?:www\\.)?(?:facebook|fb)\\.com\\/(?P<profile>(?![A-z]+\\.php)(?!marketplace|gaming|watch|me|messages|help|search|groups)[A-z0-9_\\-\\.]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?(?:facebook|fb)\\.com\\/(?P<profile>(?![A-z]+\\.php)(?!marketplace|gaming|watch|me|messages|help|search|groups)[A-z0-9_\\-\\.]+)\\/?",
       "note": "A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile",
       "tests": {
         "https://facebook.com/peterparker": {
@@ -86,7 +86,7 @@
       }
     },
     "profile by id": {
-      "regex": "https?:\\/\\/(?:www\\.)facebook.com/(?:profile.php\\?id=)?(?P<id>[0-9]+)",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)facebook.com/(?:profile.php\\?id=)?(?P<id>[0-9]+)",
       "tests": {
         "https://www.facebook.com/profile.php?id=100004123456789": {
           "id": "100004123456789"
@@ -99,7 +99,7 @@
   },
   "instagram": {
     "profile": {
-      "regex": "https?:\\/\\/(?:www\\.)?(?:instagram\\.com|instagr\\.am)\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?(?:instagram\\.com|instagr\\.am)\\/(?P<username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\\.(?!\\.))){0,28}(?:[A-Za-z0-9_]))?)",
       "note": "The rules:\n\n* Matches with one . in them disco.dude but not two .. disco..dude\n* Ending period not matched discodude.\n* Match underscores _disco__dude\n* Max characters of 30 1234567890123456789012345678901234567890",
       "tests": {
         "https://instagram.com/disco..dude": null,
@@ -117,7 +117,7 @@
   },
   "google plus": {
     "username": {
-      "regex": "https?:\\/\\/plus\\.google\\.com\\/\\+(?P<username>[A-z0-9+]+)",
+      "regex": "(?:https?:)?\\/\\/plus\\.google\\.com\\/\\+(?P<username>[A-z0-9+]+)",
       "note": "Matches username.",
       "tests": {
         "https://plus.google.com/+googleplususername": {
@@ -126,7 +126,7 @@
       }
     },
     "user id": {
-      "regex": "https?:\\/\\/plus\\.google\\.com\\/(?P<id>[0-9]{21})",
+      "regex": "(?:https?:)?\\/\\/plus\\.google\\.com\\/(?P<id>[0-9]{21})",
       "note": "Matches profile numbers with exactly 21 digits.",
       "tests": {
         "https://plus.google.com/111111111111111111111": {
@@ -151,7 +151,7 @@
   },
   "telegram": {
     "profile": {
-      "regex": "https?:\\/\\/(?:t(?:elegram)?\\.me|telegram\\.org)\\/(?P<username>[a-z0-9\\_]{5,32})\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:t(?:elegram)?\\.me|telegram\\.org)\\/(?P<username>[a-z0-9\\_]{5,32})\\/?",
       "note": "Matches for t.me, telegram.me and telegram.org.",
       "tests": {
         "https://t.me/peterparker": {
@@ -191,7 +191,7 @@
   },
   "stackoverflow": {
     "user": {
-      "regex": "https?:\\/\\/(?:www\\.)?stackoverflow\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?stackoverflow\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
       "note": "Username can be changed at any time, user_id is persistent.",
       "tests": {
         "https://stackoverflow.com/users/12345/lorey": {
@@ -202,7 +202,7 @@
       }
     },
     "question": {
-      "regex": "https?:\\/\\/(?:www\\.)?stackoverflow\\.com\\/questions\\/(?P<id>[0-9]+)\\/(?P<title>[A-z0-9-_.]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?stackoverflow\\.com\\/questions\\/(?P<id>[0-9]+)\\/(?P<title>[A-z0-9-_.]+)\\/?",
       "tests": {
         "https://stackoverflow.com/questions/12345/how-to-embed": {
           "id": "12345",
@@ -213,7 +213,7 @@
   },
   "stackexchange": {
     "user": {
-      "regex": "https?:\\/\\/(?:www\\.)?stackexchange\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?stackexchange\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
       "note": "This is the meta-platform above stackoverflow, etc. Username can be changed at any time, user_id is persistent.",
       "tests": {
         "https://stackexchange.com/users/12345/lorey": {
@@ -225,7 +225,7 @@
   },
   "stackexchange network": {
     "user": {
-      "regex": "https?:\\/\\/(?:(?P<community>[a-z]+(?!www))\\.)?stackexchange\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:(?P<community>[a-z]+(?!www))\\.)?stackexchange\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
       "note": "While there are some \"named\" communities in the stackexchange network like stackoverflow, many only exist as subdomains, i.e. gaming.stackexchange.com. Again, username can be changed at any time, user_id is persistent.",
       "tests": {
         "https://gaming.stackexchange.com/users/12345/lorey": {
@@ -239,7 +239,7 @@
   },
   "youtube": {
     "user": {
-      "regex": "https?:\\/\\/(?:[A-z]+\\.)?youtube.com/user/(?P<username>[A-z0-9]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?youtube.com\\/user\\/(?P<username>[A-z0-9]+)\\/?",
       "tests": {
         "https://www.youtube.com/user/JPPGmbH": {
           "username": "JPPGmbH"
@@ -247,7 +247,7 @@
       }
     },
     "channel": {
-      "regex": "https?:\\/\\/(?:[A-z]+\\.)?youtube.com/channel/(?P<id>[A-z0-9-\\_]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?youtube.com\\/channel\\/(?P<id>[A-z0-9-\\_]+)\\/?",
       "tests": {
         "https://www.youtube.com/channel/UC3y00Z1zFPc-8Z9xg8ydC-A": {
           "id": "UC3y00Z1zFPc-8Z9xg8ydC-A"
@@ -258,7 +258,7 @@
       }
     },
     "video": {
-      "regex": "https:\\/\\/(?:www\\.youtube\\.com\\/watch\\?v=|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.youtube\\.com\\/watch\\?v=|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
       "note": "Matches youtube video links like https://www.youtube.com/watch?v=dQw4w9WgXcQ and shortlinks like https://youtu.be/dQw4w9WgXcQ",
       "tests": {
         "https://www.youtube.com/watch?v=dQw4w9WgXcQ": {
@@ -275,7 +275,7 @@
   },
   "reddit": {
     "user": {
-      "regex": "https?:\\/\\/(?:[a-z]+\\.)?reddit\\.com\\/(?:u(?:ser)?)\\/(?P<username>[A-z0-9\\-\\_]*)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[a-z]+\\.)?reddit\\.com\\/(?:u(?:ser)?)\\/(?P<username>[A-z0-9\\-\\_]*)\\/?",
       "tests": {
         "https://old.reddit.com/user/ar-guetita": {
           "username": "ar-guetita"
