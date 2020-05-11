@@ -261,16 +261,19 @@
       }
     },
     "video": {
-      "regex": "(?:https?:)?\\/\\/(?:www\\.youtube\\.com\\/watch\\?v=|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
+      "regex": "(?:https?:)?\\/\\/(?:(?:www\\.)?youtube\\.com\\/(?:watch\\?v=|embed/)|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
       "note": "Matches youtube video links like https://www.youtube.com/watch?v=dQw4w9WgXcQ and shortlinks like https://youtu.be/dQw4w9WgXcQ",
       "tests": {
         "https://www.youtube.com/watch?v=dQw4w9WgXcQ": {
           "id": "dQw4w9WgXcQ"
         },
-        "https://www.youtube.com/watch?v=6_b7RDuLwcI": {
+        "https://youtube.com/watch?v=6_b7RDuLwcI": {
           "id": "6_b7RDuLwcI"
         },
         "https://youtu.be/dQw4w9WgXcQ": {
+          "id": "dQw4w9WgXcQ"
+        },
+        "https://youtube.com/embed/dQw4w9WgXcQ": {
           "id": "dQw4w9WgXcQ"
         }
       }
@@ -294,7 +297,9 @@
     "profile": {
       "regex": "(?:https?:)?\\/\\/(?:www\\.)?snapchat\\.com\\/add\\/(?P<username>[A-z0-9\\.\\_\\-]+)\\/?",
       "tests": {
-        "https://www.snapchat.com/add/peterparker": {"username": "peterparker"}
+        "https://www.snapchat.com/add/peterparker": {
+          "username": "peterparker"
+        }
       }
     }
   }
