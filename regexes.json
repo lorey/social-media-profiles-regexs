@@ -1,7 +1,7 @@
 {
   "twitter": {
     "user": {
-      "regex": "https?:\\/\\/[.*\\.]?twitter\\.com\\/(?P<username>[A-z0-9_]+)\\/?",
+      "regex": "https?:\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/(?P<username>[A-z0-9_]+)\\/?",
       "note": "Allowed for usernames are alphanumeric characters and underscores.",
       "tests": {
         "https://twitter.com/karllorey": {

@@ -28,7 +28,7 @@ You simply input any URL and it will fetch and return all social media links on 
 
 ### user
 ```regex
-https?:\/\/[.*\.]?twitter\.com\/(?P<username>[A-z0-9_]+)\/?
+https?:\/\/(?:[A-z]+\.)?twitter\.com\/(?P<username>[A-z0-9_]+)\/?
 ```
 Allowed for usernames are alphanumeric characters and underscores.
 
@@ -163,7 +163,6 @@ I plan on adding the following social media profiles at the moment.
 * wordpress
 * medium
 * youtube
-* stackoverflow
 * bitbucket
 
 Feel free to add any social media site you would like to find here!
