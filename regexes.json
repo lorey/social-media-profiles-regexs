@@ -261,7 +261,7 @@
       }
     },
     "video": {
-      "regex": "(?:https?:)?\\/\\/(?:(?:www\\.)?youtube\\.com\\/(?:watch\\?v=|embed/)|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
+      "regex": "(?:https?:)?\\/\\/(?:(?:www\\.)?youtube\\.com\\/(?:watch\\?v=|embed\\/)|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
       "note": "Matches youtube video links like https://www.youtube.com/watch?v=dQw4w9WgXcQ and shortlinks like https://youtu.be/dQw4w9WgXcQ",
       "tests": {
         "https://www.youtube.com/watch?v=dQw4w9WgXcQ": {
