@@ -177,5 +177,31 @@
         }
       }
     }
+  },
+  "stackexchange": {
+    "user": {
+      "regex": "https?:\\/\\/(?:www\\.)?stackexchange\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
+      "note": "This is the meta-platform above stackoverflow, etc. Username can be changed at any time, user_id is persistent.",
+      "tests": {
+        "https://stackexchange.com/users/12345/lorey": {
+          "id": "12345",
+          "username": "lorey"
+        }
+      }
+    }
+  },
+  "stackexchange network": {
+    "user": {
+      "regex": "https?:\\/\\/(?:(?P<community>[a-z]+(?!www))\\.)?stackexchange\\.com\\/users\\/(?P<id>[0-9]+)\\/(?P<username>[A-z0-9-_.]+)\\/?",
+      "note": "While there are some \"named\" communities in the stackexchange network like stackoverflow, many only exist as subdomains, i.e. gaming.stackexchange.com. Again, username can be changed at any time, user_id is persistent.",
+      "tests": {
+        "https://gaming.stackexchange.com/users/12345/lorey": {
+          "id": "12345",
+          "username": "lorey",
+          "community": "gaming"
+        },
+        "https://www.stackexchange.com/user/12345/lorey": null
+      }
+    }
   }
 }

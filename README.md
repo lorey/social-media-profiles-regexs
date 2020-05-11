@@ -21,6 +21,8 @@ You simply input any URL and it will fetch and return all social media links on 
 - [email](#email)
 - [phone](#phone)
 - [stackoverflow](#stackoverflow)
+- [stackexchange](#stackexchange)
+- [stackexchange network](#stackexchange-network)
 - [Monster Regex](#monster-regex)
 
 
@@ -152,11 +154,29 @@ https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<id>[0-9]+)\/(?P<title>[A
 ```
 
 
+
+## stackexchange
+
+### user
+```regex
+https?:\/\/(?:www\.)?stackexchange\.com\/users\/(?P<id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
+```
+This is the meta-platform above stackoverflow, etc. Username can be changed at any time, user_id is persistent.
+
+
+## stackexchange network
+
+### user
+```regex
+https?:\/\/(?:(?P<community>[a-z]+(?!www))\.)?stackexchange\.com\/users\/(?P<id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
+```
+While there are some "named" communities in the stackexchange network like stackoverflow, many only exist as subdomains, i.e. gaming.stackexchange.com. Again, username can be changed at any time, user_id is persistent.
+
 ## Monster Regex
 If you want to match all social media profiles with one regex, use this monster:
 
 ```regex
-(?P<twitter__user>https?:\/\/(?:[A-z]+\.)?twitter\.com\/(?P<twitter__user__username>[A-z0-9_]+)\/?)|(?P<github__user>https?:\/\/(?:www\.)?github\.com\/(?P<github__user__login>[A-z0-9_-]+)\/?)|(?P<github__repo>https?:\/\/(?:www\.)?github\.com\/(?P<github__repo__login>[A-z0-9_-]+)\/(?P<github__repo__repo>[A-z0-9_-]+)\/?)|(?P<linkedin__regular>https?:\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<linkedin__regular__permalink>[A-z0-9_-]+)\/?)|(?P<linkedin__pub>https?:\/\/(?:www)?linkedin\.com\/pub\/(?P<linkedin__pub__permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?)|(?P<facebook__profile>https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<facebook__profile__profile>[A-z0-9_\-\.]+)\/?)|(?P<instagram__profile>https?:\/\/(?:www\.)?instagram\.com\/(?P<instagram__profile__username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?))|(?P<google_plus__username>https?:\/\/plus\.google\.com\/\+(?P<google_plus__username__username>[A-z0-9+]+))|(?P<google_plus__user_id>https?:\/\/plus\.google\.com\/(?P<google_plus__user_id__id>[0-9]{21}))|(?P<skype__profile>(?:(?:callto|skype):)(?P<skype__profile__username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\?(?:add|call|chat|sendfile|userinfo))?)|(?P<telegram__profile>https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<telegram__profile__username>[a-z0-9\_]{5,32})\/?)|(?P<email__mailto>mailto:(?P<email__mailto__email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+))|(?P<phone__phone_number>(?:tel|phone|mobile):(?P<phone__phone_number__number>\+?[0-9. -]+))|(?P<stackoverflow__user>https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<stackoverflow__user__id>[0-9]+)\/(?P<stackoverflow__user__username>[A-z0-9-_.]+)\/?)|(?P<stackoverflow__question>https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<stackoverflow__question__id>[0-9]+)\/(?P<stackoverflow__question__title>[A-z0-9-_.]+)\/?)
+(?P<twitter__user>https?:\/\/(?:[A-z]+\.)?twitter\.com\/(?P<twitter__user__username>[A-z0-9_]+)\/?)|(?P<github__user>https?:\/\/(?:www\.)?github\.com\/(?P<github__user__login>[A-z0-9_-]+)\/?)|(?P<github__repo>https?:\/\/(?:www\.)?github\.com\/(?P<github__repo__login>[A-z0-9_-]+)\/(?P<github__repo__repo>[A-z0-9_-]+)\/?)|(?P<linkedin__regular>https?:\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<linkedin__regular__permalink>[A-z0-9_-]+)\/?)|(?P<linkedin__pub>https?:\/\/(?:www)?linkedin\.com\/pub\/(?P<linkedin__pub__permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?)|(?P<facebook__profile>https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/(?P<facebook__profile__profile>[A-z0-9_\-\.]+)\/?)|(?P<instagram__profile>https?:\/\/(?:www\.)?instagram\.com\/(?P<instagram__profile__username>[A-Za-z0-9_](?:(?:[A-Za-z0-9_]|(?:\.(?!\.))){0,28}(?:[A-Za-z0-9_]))?))|(?P<google_plus__username>https?:\/\/plus\.google\.com\/\+(?P<google_plus__username__username>[A-z0-9+]+))|(?P<google_plus__user_id>https?:\/\/plus\.google\.com\/(?P<google_plus__user_id__id>[0-9]{21}))|(?P<skype__profile>(?:(?:callto|skype):)(?P<skype__profile__username>[a-z][a-z0-9\\.,\\-_]{5,31})(?:\?(?:add|call|chat|sendfile|userinfo))?)|(?P<telegram__profile>https?:\/\/(?:t(?:elegram)?\.me|telegram\.org)\/(?P<telegram__profile__username>[a-z0-9\_]{5,32})\/?)|(?P<email__mailto>mailto:(?P<email__mailto__email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+))|(?P<phone__phone_number>(?:tel|phone|mobile):(?P<phone__phone_number__number>\+?[0-9. -]+))|(?P<stackoverflow__user>https?:\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<stackoverflow__user__id>[0-9]+)\/(?P<stackoverflow__user__username>[A-z0-9-_.]+)\/?)|(?P<stackoverflow__question>https?:\/\/(?:www\.)?stackoverflow\.com\/questions\/(?P<stackoverflow__question__id>[0-9]+)\/(?P<stackoverflow__question__title>[A-z0-9-_.]+)\/?)|(?P<stackexchange__user>https?:\/\/(?:www\.)?stackexchange\.com\/users\/(?P<stackexchange__user__id>[0-9]+)\/(?P<stackexchange__user__username>[A-z0-9-_.]+)\/?)|(?P<stackexchange_network__user>https?:\/\/(?:(?P<stackexchange_network__user__community>[a-z]+(?!www))\.)?stackexchange\.com\/users\/(?P<stackexchange_network__user__id>[0-9]+)\/(?P<stackexchange_network__user__username>[A-z0-9-_.]+)\/?)
 
 ```
 
