@@ -141,5 +141,16 @@
         }
       }
     }
+  },
+  "phone": {
+    "phone number": {
+      "regex": "(?:tel|phone|mobile):(?P<number>\\+?[0-9. -]+)",
+      "note": "Should be cleaned afterwards to strip dots, spaces, etc.",
+      "tests": {
+        "tel:+49900123456": {"number":  "+49900123456"},
+        "tel:+49 900 123456": {"number":  "+49 900 123456"},
+        "tel:+49 9OO 123456": null
+      }
+    }
   }
 }

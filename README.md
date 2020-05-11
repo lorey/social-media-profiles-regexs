@@ -20,6 +20,7 @@ You simply input any URL and it will fetch and return all social media links on 
 - [skype](#skype)
 - [telegram](#telegram)
 - [email](#email)
+- [phone](#phone)
 
 
 ## twitter
@@ -124,6 +125,15 @@ Matches for t.me, telegram.me and telegram.org.
 mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+)
 ```
 This is for scraping only and in no way usable as a validation.
+
+
+## phone
+
+### phone number
+```regex
+(?:tel|phone|mobile):(?P<number>\+?[0-9. -]+)
+```
+Should be cleaned afterwards to strip dots, spaces, etc.
 
 
 
