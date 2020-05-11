@@ -9,6 +9,11 @@ You input the urls, it extracts the social media profiles.
 * There's also a [Socials API](https://github.com/lorey/socials-api) you can use for free or deploy yourself.
 You simply input any URL and it will fetch and return all social media links on this website. Try it [here](http://socials.karllorey.com/try).
 
+If you're missing a particular platform, please feel free to add it.
+Also feel free to add a test that does not work.
+An explanation of how this repo works can be found in [CONTRIBUTING.md](CONTRIBUTING.md).
+You might also open an issue, of course, I'm happy to help!
+
 ## Table of Contents
 {% for platform in data -%}
 - [{{ platform }}](#{{ platform|replace(" ", "-") }})
@@ -35,16 +40,3 @@ If you want to match all social media profiles with one regex, use this monster:
 
 ```
 
-## TODO
-* Verification checks (ideas first and maybe scripts at a later point)
-
-I plan on adding the following social media profiles at the moment.
-* xing
-* pinterest
-* vimeo
-* wordpress
-* medium
-* youtube
-* bitbucket
-
-Feel free to add any social media site you would like to find here!
