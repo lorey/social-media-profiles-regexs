@@ -204,5 +204,41 @@
         "https://www.stackexchange.com/user/12345/lorey": null
       }
     }
+  },
+  "youtube": {
+    "user": {
+      "regex": "https?:\\/\\/(?:[A-z]+\\.)?youtube.com/user/(?P<username>[A-z0-9]+)\\/?",
+      "tests": {
+        "https://www.youtube.com/user/JPPGmbH": {
+          "username": "JPPGmbH"
+        }
+      }
+    },
+    "channel": {
+      "regex": "https?:\\/\\/(?:[A-z]+\\.)?youtube.com/channel/(?P<id>[A-z0-9-\\_]+)\\/?",
+      "tests": {
+        "https://www.youtube.com/channel/UC3y00Z1zFPc-8Z9xg8ydC-A": {
+          "id": "UC3y00Z1zFPc-8Z9xg8ydC-A"
+        },
+        "https://www.youtube.com/channel/UCtAh1m085QkEKYNg0j_6r8A": {
+          "id": "UCtAh1m085QkEKYNg0j_6r8A"
+        }
+      }
+    },
+    "video": {
+      "regex": "https:\\/\\/(?:www\\.youtube\\.com\\/watch\\?v=|youtu\\.be\\/)(?P<id>[A-z0-9\\-\\_]+)",
+      "note": "Matches youtube video links like https://www.youtube.com/watch?v=dQw4w9WgXcQ and shortlinks like https://youtu.be/dQw4w9WgXcQ",
+      "tests": {
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ": {
+          "id": "dQw4w9WgXcQ"
+        },
+        "https://www.youtube.com/watch?v=6_b7RDuLwcI": {
+          "id": "6_b7RDuLwcI"
+        },
+        "https://youtu.be/dQw4w9WgXcQ": {
+          "id": "dQw4w9WgXcQ"
+        }
+      }
+    }
   }
 }
