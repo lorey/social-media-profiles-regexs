@@ -39,11 +39,14 @@
   },
   "linkedin": {
     "regular": {
-      "regex": "https?:\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[A-z0-9_-]+)\\/?",
+      "regex": "https?:\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[\\w\\-\\_À-ÿ%]+)\\/?",
       "note": "These are the currently used, most-common urls ending in /in/<permalink>",
       "tests": {
         "https://linkedin.com/in/karllorey": {
           "permalink": "karllorey"
+        },
+        "https://www.linkedin.com/in/peter-müller-81a8/": {
+          "permalink": "peter-müller-81a8"
         }
       }
     },
@@ -64,6 +67,9 @@
       "tests": {
         "https://facebook.com/peter.parker": {
           "profile": "peter.parker"
+        },
+        "http://fb.com/peter_parker-miller": {
+          "profile": "peter_parker-miller"
         }
       }
     }
