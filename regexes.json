@@ -15,6 +15,15 @@
         },
         "htt://twitter.com/karllorey": null
       }
+    },
+    "status": {
+      "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/@?(?P<username>[A-z0-9_]+)\\/status\\/(?P<tweet_id>[0-9]+)\\/?",
+      "tests": {
+        "https://twitter.com/karllorey/status/1259924082067374088": {
+          "username": "karllorey",
+          "tweet_id": "1259924082067374088"
+        }
+      }
     }
   },
   "github": {
