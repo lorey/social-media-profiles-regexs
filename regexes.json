@@ -50,24 +50,36 @@
     }
   },
   "linkedin": {
-    "regular": {
+    "profile": {
       "regex": "(?:https?:)?\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/in\\/(?P<permalink>[\\w\\-\\_À-ÿ%]+)\\/?",
       "note": "These are the currently used, most-common urls ending in /in/<permalink>",
       "tests": {
         "https://linkedin.com/in/karllorey": {
           "permalink": "karllorey"
         },
-        "https://www.linkedin.com/in/peter-müller-81a8/": {
+        "https://de.linkedin.com/in/peter-müller-81a8/": {
           "permalink": "peter-müller-81a8"
         }
       }
     },
-    "pub": {
-      "regex": "(?:https?:)?\\/\\/(?:www)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(?:\\/[A-z0-9]+){3}\\/?",
+    "profile_pub": {
+      "regex": "(?:https?:)?\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/pub\\/(?P<permalink_pub>[A-z0-9_-]+)(?:\\/[A-z0-9]+){3}\\/?",
       "note": "These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)",
       "tests": {
         "https://linkedin.com/pub/karllorey/abc/123/be": {
           "permalink_pub": "karllorey"
+        },
+        "https://www.linkedin.com/pub/karllorey/abc/123/be": {
+          "permalink_pub": "karllorey"
+        }
+      }
+    },
+    "post": {
+      "regex": "(?:https?:)?\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/feed\\/update\\/urn:li:activity:(?P<activity_id>[0-9]+)\\/?",
+      "note": "Direct link to a Linkedin post, only contains a post id.",
+      "tests": {
+        "https://www.linkedin.com/feed/update/urn:li:activity:6665508550111912345/": {
+          "activity_id": "6665508550111912345"
         }
       }
     }
