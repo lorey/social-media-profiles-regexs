@@ -31,7 +31,8 @@ def test_regex(regex, url, matches):
     if matches:
         # there's an expected results, i.e. the dict is not None
         assert fullmatch is not None, "Regex did not match at all"
-        assert len(fullmatch.groups()) == len(matches), "Regex has more than expected capturing groups"
+        # removed because we might have queries with optional groups, e.g. medium posts with users or publications
+        # assert len(fullmatch.groups()) == len(matches), "Regex has more than expected capturing groups"
         for name, match in matches.items():
             assert fullmatch.group(name) == match, "Group %s invalid" % name
     else:
@@ -42,7 +43,7 @@ def test_regex(regex, url, matches):
 @pytest.mark.parametrize("regex,url,matches", make_testdata())
 def test_regex_without_protocol(regex, url, matches):
     # take the url and remove protocol
-    url_without_protocol = url.replace('http:', '').replace("https:", "")
+    url_without_protocol = url.replace("http:", "").replace("https:", "")
     test_regex(regex, url_without_protocol, matches)
 
 

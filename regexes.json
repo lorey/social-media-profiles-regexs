@@ -146,6 +146,52 @@
       }
     }
   },
+  "medium": {
+    "post": {
+      "regex": "(?:https?:)?\\/\\/medium\\.com\\/(?:(?:@(?P<username>[A-z0-9]+))|(?P<publication>[a-z-]+))\\/(?P<slug>[a-z0-9\\-]+)-(?P<post_id>[A-z0-9]+)(?:\\?.*)?",
+      "tests": {
+        "https://medium.com/@karllorey/keeping-pandas-dataframes-clean-when-importing-json-348d3439ed67": {
+          "post_id": "348d3439ed67",
+          "slug": "keeping-pandas-dataframes-clean-when-importing-json",
+          "username": "karllorey"
+        },
+        "https://medium.com/does-exist/some-post-123abc": {
+          "post_id": "123abc",
+          "publication": "does-exist",
+          "slug": "some-post"
+        }
+      }
+    },
+    "post of subdomain publication": {
+      "note": "Can't match these with the regular post regex as redefinitions of subgroups are not allowed in pythons regex.",
+      "regex": "(?:https?:)?\\/\\/(?P<publication>(?!www)[a-z-]+)\\.medium\\.com\\/(?P<slug>[a-z0-9\\-]+)-(?P<post_id>[A-z0-9]+)(?:\\?.*)?",
+      "tests": {
+        "https://onezero.medium.com/what-facebooks-remote-work-policy-means-for-the-future-of-tech-salaries-everywhere-edf859226b62?source=grid_home------": {
+          "post_id": "edf859226b62",
+          "publication": "onezero",
+          "slug": "what-facebooks-remote-work-policy-means-for-the-future-of-tech-salaries-everywhere"
+        },
+        "https://www.medium.com/foo": null
+      }
+    },
+    "user": {
+      "regex": "(?:https?:)?\\/\\/medium\\.com\\/@(?P<username>[A-z0-9]+)(?:\\?.*)?",
+      "tests": {
+        "https://medium.com/@karllorey": {
+          "username": "karllorey"
+        }
+      }
+    },
+    "user by id": {
+      "note": "Now redirects to new user profiles. Follow with a head or get request.",
+      "regex": "(?:https?:)?\\/\\/medium\\.com\\/u\\/(?P<user_id>[A-z0-9]+)(?:\\?.*)",
+      "tests": {
+        "https://medium.com/u/b3d3d3653c2c?source=post_page-----da92b81b85ef----------------------": {
+          "user_id": "b3d3d3653c2c"
+        }
+      }
+    }
+  },
   "phone": {
     "phone number": {
       "note": "Should be cleaned afterwards to strip dots, spaces, etc.",
