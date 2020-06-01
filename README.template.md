@@ -34,6 +34,13 @@ You might also open an issue, of course, I'm happy to help!
 {{ data[platform][type].regex }}
 ```
 {{ data[platform][type].note }}
+
+Examples: 
+{% for url in data[platform][type]["tests"] %}
+{%- if data[platform][type]["tests"][url] %}
+- {{ url }}
+{%- endif -%}
+{%- endfor %}
 {% endfor %}
 {% endfor -%}
 

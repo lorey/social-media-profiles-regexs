@@ -52,17 +52,31 @@ You might also open an issue, of course, I'm happy to help!
 ```
 
 
+Examples: 
+
+- https://angel.co/company/twitter
+- https://angel.co/company/twitter/culture
+
 ### job
 ```regex
 (?:https?:)?\/\/angel\.co\/company\/(?P<company>[A-z0-9_-]+)\/jobs\/(?P<job_permalink>(?P<job_id>[0-9]+)-(?P<job_slug>[A-z0-9-]+))
 ```
 
 
+Examples: 
+
+- https://angel.co/company/twitter/jobs/576275-engineering-manager
+
 ### user
 ```regex
 (?:https?:)?\/\/angel\.co\/(?P<type>u|p)\/(?P<user>[A-z0-9_-]+)
 ```
 There are root-level direct links to users, e.g. angel.co/karllorey, that get redirected to these new user links now. Sometimes it's /p/, sometimes it's /u/, haven't figured out why that is...
+
+Examples: 
+
+- https://angel.co/p/naval
+- https://angel.co/u/karllorey
 
 
 ## email
@@ -73,6 +87,11 @@ mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+)
 ```
 This is for scraping only and in no way usable as a validation.
 
+Examples: 
+
+- mailto:git@karllorey.com
+- mailto:plususer+test@gmail.com
+
 
 ## facebook
 
@@ -82,11 +101,22 @@ This is for scraping only and in no way usable as a validation.
 ```
 A profile can be a page, a user profile, or something else. Since Facebook redirects these URLs to all kinds of objects (user, pages, events, and so on), you have to verify that it's actually a user. See https://developers.facebook.com/docs/graph-api/reference/profile
 
+Examples: 
+
+- http://fb.com/peter_parker-miller
+- https://facebook.com/peter.parker
+- https://facebook.com/peterparker
+
 ### profile by id
 ```regex
 (?:https?:)?\/\/(?:www\.)facebook.com/(?:profile.php\?id=)?(?P<id>[0-9]+)
 ```
 
+
+Examples: 
+
+- https://www.facebook.com/100004123456789
+- https://www.facebook.com/profile.php?id=100004123456789
 
 
 ## github
@@ -97,11 +127,19 @@ A profile can be a page, a user profile, or something else. Since Facebook redir
 ```
 Exclude subdomains as these redirect to github pages sometimes.
 
+Examples: 
+
+- https://github.com/lorey/socials
+
 ### user
 ```regex
 (?:https?:)?\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)\/?
 ```
 Exclude subdomains other than `www.` as these redirect to github pages sometimes.
+
+Examples: 
+
+- https://github.com/lorey/
 
 
 ## google plus
@@ -112,11 +150,19 @@ Exclude subdomains other than `www.` as these redirect to github pages sometimes
 ```
 Matches profile numbers with exactly 21 digits.
 
+Examples: 
+
+- https://plus.google.com/111111111111111111111
+
 ### username
 ```regex
 (?:https?:)?\/\/plus\.google\.com\/\+(?P<username>[A-z0-9+]+)
 ```
 Matches username.
+
+Examples: 
+
+- https://plus.google.com/+googleplususername
 
 
 ## hackernews
@@ -127,11 +173,21 @@ Matches username.
 ```
 An item can be a post or a direct link to a comment.
 
+Examples: 
+
+- https://news.ycombinator.com/item?id=23290375
+
 ### user
 ```regex
 (?:https?:)?\/\/news\.ycombinator\.com\/user\?id=(?P<user>[A-z0-9_-]+)
 ```
 
+
+Examples: 
+
+- https://news.ycombinator.com/user?id=CamelCaps
+- https://news.ycombinator.com/user?id=dash-and-underscore_are-valid
+- https://news.ycombinator.com/user?id=lorey
 
 
 ## instagram
@@ -147,6 +203,12 @@ The rules:
 * Match underscores _disco__dude
 * Max characters of 30 1234567890123456789012345678901234567890
 
+Examples: 
+
+- https://instagram.com/__disco__dude
+- https://instagram.com/disco.dude
+- https://www.instagr.am/__disco__dude
+
 
 ## linkedin
 
@@ -156,17 +218,31 @@ The rules:
 ```
 Direct link to a Linkedin post, only contains a post id.
 
+Examples: 
+
+- https://www.linkedin.com/feed/update/urn:li:activity:6665508550111912345/
+
 ### profile
 ```regex
 (?:https?:)?\/\/(?:[\w]+\.)?linkedin\.com\/in\/(?P<permalink>[\w\-\_À-ÿ%]+)\/?
 ```
 These are the currently used, most-common urls ending in /in/<permalink>
 
+Examples: 
+
+- https://de.linkedin.com/in/peter-müller-81a8/
+- https://linkedin.com/in/karllorey
+
 ### profile_pub
 ```regex
 (?:https?:)?\/\/(?:[\w]+\.)?linkedin\.com\/pub\/(?P<permalink_pub>[A-z0-9_-]+)(?:\/[A-z0-9]+){3}\/?
 ```
 These are old public urls not used anymore, more info at [quora](https://www.quora.com/What-is-the-difference-between-www-linkedin-com-pub-and-www-linkedin-com-in)
+
+Examples: 
+
+- https://linkedin.com/pub/karllorey/abc/123/be
+- https://www.linkedin.com/pub/karllorey/abc/123/be
 
 
 ## medium
@@ -177,11 +253,20 @@ These are old public urls not used anymore, more info at [quora](https://www.quo
 ```
 
 
+Examples: 
+
+- https://medium.com/@karllorey/keeping-pandas-dataframes-clean-when-importing-json-348d3439ed67
+- https://medium.com/does-exist/some-post-123abc
+
 ### post of subdomain publication
 ```regex
 (?:https?:)?\/\/(?P<publication>(?!www)[a-z-]+)\.medium\.com\/(?P<slug>[a-z0-9\-]+)-(?P<post_id>[A-z0-9]+)(?:\?.*)?
 ```
 Can't match these with the regular post regex as redefinitions of subgroups are not allowed in pythons regex.
+
+Examples: 
+
+- https://onezero.medium.com/what-facebooks-remote-work-policy-means-for-the-future-of-tech-salaries-everywhere-edf859226b62?source=grid_home------
 
 ### user
 ```regex
@@ -189,11 +274,19 @@ Can't match these with the regular post regex as redefinitions of subgroups are 
 ```
 
 
+Examples: 
+
+- https://medium.com/@karllorey
+
 ### user by id
 ```regex
 (?:https?:)?\/\/medium\.com\/u\/(?P<user_id>[A-z0-9]+)(?:\?.*)
 ```
 Now redirects to new user profiles. Follow with a head or get request.
+
+Examples: 
+
+- https://medium.com/u/b3d3d3653c2c?source=post_page-----da92b81b85ef----------------------
 
 
 ## phone
@@ -204,6 +297,11 @@ Now redirects to new user profiles. Follow with a head or get request.
 ```
 Should be cleaned afterwards to strip dots, spaces, etc.
 
+Examples: 
+
+- tel:+49 900 123456
+- tel:+49900123456
+
 
 ## reddit
 
@@ -212,6 +310,11 @@ Should be cleaned afterwards to strip dots, spaces, etc.
 (?:https?:)?\/\/(?:[a-z]+\.)?reddit\.com\/(?:u(?:ser)?)\/(?P<username>[A-z0-9\-\_]*)\/?
 ```
 
+
+Examples: 
+
+- https://old.reddit.com/user/ar-guetita
+- https://reddit.com/u/ar-guetita
 
 
 ## skype
@@ -222,6 +325,11 @@ Should be cleaned afterwards to strip dots, spaces, etc.
 ```
 Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs](https://docs.microsoft.com/en-us/skype-sdk/skypeuris/skypeuris).
 
+Examples: 
+
+- skype:echo123
+- skype:echo123?call
+
 
 ## snapchat
 
@@ -230,6 +338,10 @@ Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs]
 (?:https?:)?\/\/(?:www\.)?snapchat\.com\/add\/(?P<username>[A-z0-9\.\_\-]+)\/?
 ```
 
+
+Examples: 
+
+- https://www.snapchat.com/add/peterparker
 
 
 ## stackexchange
@@ -240,6 +352,10 @@ Matches Skype's URLs to add contact, call, chat. More info at [Skype SDK's docs]
 ```
 This is the meta-platform above stackoverflow, etc. Username can be changed at any time, user_id is persistent.
 
+Examples: 
+
+- https://stackexchange.com/users/12345/lorey
+
 
 ## stackexchange network
 
@@ -248,6 +364,10 @@ This is the meta-platform above stackoverflow, etc. Username can be changed at a
 (?:https?:)?\/\/(?:(?P<community>[a-z]+(?!www))\.)?stackexchange\.com\/users\/(?P<id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
 ```
 While there are some "named" communities in the stackexchange network like stackoverflow, many only exist as subdomains, i.e. gaming.stackexchange.com. Again, username can be changed at any time, user_id is persistent.
+
+Examples: 
+
+- https://gaming.stackexchange.com/users/12345/lorey
 
 
 ## stackoverflow
@@ -258,11 +378,19 @@ While there are some "named" communities in the stackexchange network like stack
 ```
 
 
+Examples: 
+
+- https://stackoverflow.com/questions/12345/how-to-embed
+
 ### user
 ```regex
 (?:https?:)?\/\/(?:www\.)?stackoverflow\.com\/users\/(?P<id>[0-9]+)\/(?P<username>[A-z0-9-_.]+)\/?
 ```
 Username can be changed at any time, user_id is persistent.
+
+Examples: 
+
+- https://stackoverflow.com/users/12345/lorey
 
 
 ## telegram
@@ -273,6 +401,10 @@ Username can be changed at any time, user_id is persistent.
 ```
 Matches for t.me, telegram.me and telegram.org.
 
+Examples: 
+
+- https://t.me/peterparker
+
 
 ## twitter
 
@@ -282,11 +414,21 @@ Matches for t.me, telegram.me and telegram.org.
 ```
 
 
+Examples: 
+
+- https://twitter.com/karllorey/status/1259924082067374088
+
 ### user
 ```regex
 (?:https?:)?\/\/(?:[A-z]+\.)?twitter\.com\/@?(?P<username>[A-z0-9_]+)\/?
 ```
 Allowed for usernames are alphanumeric characters and underscores.
+
+Examples: 
+
+- http://twitter.com/@karllorey
+- http://twitter.com/karllorey
+- https://twitter.com/karllorey
 
 
 ## vimeo
@@ -297,11 +439,20 @@ Allowed for usernames are alphanumeric characters and underscores.
 ```
 
 
+Examples: 
+
+- https://vimeo.com/user46726126
+
 ### video
 ```regex
 (?:https?:)?\/\/(?:(?:www)?vimeo\.com|player.vimeo.com\/video)\/(?P<id>[0-9]+)
 ```
 
+
+Examples: 
+
+- https://player.vimeo.com/video/148751763
+- https://vimeo.com/148751763
 
 
 ## youtube
@@ -312,17 +463,33 @@ Allowed for usernames are alphanumeric characters and underscores.
 ```
 
 
+Examples: 
+
+- https://www.youtube.com/channel/UC3y00Z1zFPc-8Z9xg8ydC-A
+- https://www.youtube.com/channel/UCtAh1m085QkEKYNg0j_6r8A
+
 ### user
 ```regex
 (?:https?:)?\/\/(?:[A-z]+\.)?youtube.com\/user\/(?P<username>[A-z0-9]+)\/?
 ```
 
 
+Examples: 
+
+- https://www.youtube.com/user/JPPGmbH
+
 ### video
 ```regex
 (?:https?:)?\/\/(?:(?:www\.)?youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)(?P<id>[A-z0-9\-\_]+)
 ```
 Matches youtube video links like https://www.youtube.com/watch?v=dQw4w9WgXcQ and shortlinks like https://youtu.be/dQw4w9WgXcQ
+
+Examples: 
+
+- https://www.youtube.com/watch?v=dQw4w9WgXcQ
+- https://youtu.be/dQw4w9WgXcQ
+- https://youtube.com/embed/dQw4w9WgXcQ
+- https://youtube.com/watch?v=6_b7RDuLwcI
 
 ## Monster Regex
 If you want to match all social media profiles with one regex, use this monster:
