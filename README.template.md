@@ -4,6 +4,12 @@ So if you find a hyperlink to this repo somewhere on the web, i.e. https://githu
 the regular expressions in this repo allow you find out it's a Github link pointing to a repo
 as well as extract the username `lorey` and the repo name `social-media-profiles-regexs` from this URL.
 
+Features:
+
+- detect the platform a url points to (all major platforms supported)
+- extract the information contained within the url (without opening the url, of course)
+- extract emails and phone numbers from hyperlinks
+
 Please note:
 If you want to extract social media links, depending on your case, there are possibly easier ways:
 
@@ -45,7 +51,11 @@ Examples:
 {% endfor -%}
 
 ## Monster Regex
-If you want to match all social media profiles with one regex, use this monster:
+If you want to match and extract the data from all urls with one regex, use this monster.
+It will return the data for all the platforms above.
+The regex subgroups are prefixed with the platform, 
+e.g. `angellist__company` instead of just `company` in the angellist company regex, 
+as some regex implementations don't support defining subgroups more than once which would introduce errors if  the same subgroup name is used in two or more platforms.
 
 ```regex
 {{ monster_regex }}
