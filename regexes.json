@@ -93,6 +93,31 @@
       }
     }
   },
+  "hackernews": {
+    "item": {
+      "note": "An item can be a post or a direct link to a comment.",
+      "regex": "(?:https?:)?\\/\\/news\\.ycombinator\\.com\\/item\\?id=(?P<item>[0-9]+)",
+      "tests": {
+        "https://news.ycombinator.com/item?id=23290375": {
+          "item": "23290375"
+        }
+      }
+    },
+    "user": {
+      "regex": "(?:https?:)?\\/\\/news\\.ycombinator\\.com\\/user\\?id=(?P<user>[A-z0-9_-]+)",
+      "tests": {
+        "https://news.ycombinator.com/user?id=CamelCaps": {
+          "user": "CamelCaps"
+        },
+        "https://news.ycombinator.com/user?id=dash-and-underscore_are-valid": {
+          "user": "dash-and-underscore_are-valid"
+        },
+        "https://news.ycombinator.com/user?id=lorey": {
+          "user": "lorey"
+        }
+      }
+    }
+  },
   "instagram": {
     "profile": {
       "note": "The rules:\n\n* Matches with one . in them disco.dude but not two .. disco..dude\n* Ending period not matched discodude.\n* Match underscores _disco__dude\n* Max characters of 30 1234567890123456789012345678901234567890",
