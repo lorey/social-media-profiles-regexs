@@ -89,7 +89,7 @@ This is for scraping only and in no way usable as a validation.
 
 Examples: 
 
-- mailto:git@karllorey.com
+- mailto:jeff@amazon.com
 - mailto:plususer+test@gmail.com
 
 
