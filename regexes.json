@@ -1,4 +1,43 @@
 {
+  "angellist": {
+    "company": {
+      "regex": "(?:https?:)?\\/\\/angel\\.co\\/company\\/(?P<company>[A-z0-9_-]+)(?:\\/(?P<company_subpage>[A-z0-9-]+))?",
+      "tests": {
+        "https://angel.co/company/twitter": {
+          "company": "twitter"
+        },
+        "https://angel.co/company/twitter/culture": {
+          "company": "twitter",
+          "company_subpage": "culture"
+        }
+      }
+    },
+    "job": {
+      "regex": "(?:https?:)?\\/\\/angel\\.co\\/company\\/(?P<company>[A-z0-9_-]+)\\/jobs\\/(?P<job_permalink>(?P<job_id>[0-9]+)-(?P<job_slug>[A-z0-9-]+))",
+      "tests": {
+        "https://angel.co/company/twitter/jobs/576275-engineering-manager": {
+          "company": "twitter",
+          "job_id": "576275",
+          "job_permalink": "576275-engineering-manager",
+          "job_slug": "engineering-manager"
+        }
+      }
+    },
+    "user": {
+      "note": "There are root-level direct links to users, e.g. angel.co/karllorey, that get redirected to these new user links now. Sometimes it's /p/, sometimes it's /u/, haven't figured out why that is...",
+      "regex": "(?:https?:)?\\/\\/angel\\.co\\/(?P<type>u|p)\\/(?P<user>[A-z0-9_-]+)",
+      "tests": {
+        "https://angel.co/p/naval": {
+          "type": "p",
+          "user": "naval"
+        },
+        "https://angel.co/u/karllorey": {
+          "type": "u",
+          "user": "karllorey"
+        }
+      }
+    }
+  },
   "email": {
     "mailto": {
       "note": "This is for scraping only and in no way usable as a validation.",
