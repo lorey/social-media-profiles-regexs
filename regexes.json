@@ -178,10 +178,10 @@
   "linkedin": {
     "company": {
       "note": "Permalink may be a company id or a regular permalink. The id redirects to the permalink as soon as one is created.",
-      "regex": "(?:https?:)?\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/company\\/(?P<company_permalink>[A-z0-9-]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[\\w]+\\.)?linkedin\\.com\\/company\\/(?P<company_permalink>[A-z0-9-\\.]+)\\/?",
       "tests": {
-        "https://linkedin.com/company/dash-company": {
-          "company_permalink": "dash-company"
+        "https://linkedin.com/company/dash-company.io": {
+          "company_permalink": "dash-company.io"
         },
         "https://www.linkedin.com/company/1234567/": {
           "company_permalink": "1234567"
