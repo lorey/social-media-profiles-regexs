@@ -37,7 +37,7 @@ def test_regex(regex, url, matches):
             assert fullmatch.group(name) == match, "Group %s invalid" % name
     else:
         # no dict, assert no match
-        assert fullmatch is None
+        assert fullmatch is None, "%s matched %s, should not" % (url, fullmatch)
 
 
 @pytest.mark.parametrize("regex,url,matches", make_testdata())
