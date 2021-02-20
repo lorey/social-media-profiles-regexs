@@ -38,6 +38,24 @@
       }
     }
   },
+  "crunchbase": {
+    "company": {
+      "regex": "(?:https?:)?\\/\\/crunchbase\\.com\\/organization\\/(?P<organization>[A-z0-9_-]+)",
+      "tests": {
+        "http://crunchbase.com/organization/acme-corp": {
+          "organization": "acme-corp"
+        }
+      }
+    },
+    "person": {
+      "regex": "(?:https?:)?\\/\\/crunchbase\\.com\\/person\\/(?P<person>[A-z0-9_-]+)",
+      "tests": {
+        "http://crunchbase.com/person/karl-lorey": {
+          "person": "karl-lorey"
+        }
+      }
+    }
+  },
   "email": {
     "mailto": {
       "note": "This is for scraping only and in no way usable as a validation.",
