@@ -392,7 +392,7 @@
     },
     "user": {
       "note": "Allowed for usernames are alphanumeric characters and underscores.",
-      "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/@?(?!share)(?P<username>[A-z0-9_]+)\\/?",
+      "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/@?(?!home|share|privacy|tos)(?P<username>[A-z0-9_]+)\\/?",
       "tests": {
         "htt://twitter.com/karllorey": null,
         "http://twitter.com/@karllorey": {
@@ -401,10 +401,13 @@
         "http://twitter.com/karllorey": {
           "username": "karllorey"
         },
+        "https://twitter.com/home": null,
         "https://twitter.com/karllorey": {
           "username": "karllorey"
         },
-        "https://twitter.com/share": null
+        "https://twitter.com/privacy": null,
+        "https://twitter.com/share": null,
+        "https://twitter.com/tos": null
       }
     }
   },
