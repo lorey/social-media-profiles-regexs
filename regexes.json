@@ -459,6 +459,17 @@
       }
     }
   },
+  "xing": {
+    "profile": {
+      "note": "Default slugs are Firstname_Lastname. If several people with the same name exist, a number is appended.",
+      "regex": "(?:https?:)?\\/\\/(?:www\\.)?xing.com\\/profile\\/(?P<slug>[A-z0-9-\\_]+)",
+      "tests": {
+        "https://www.xing.com/profile/Tobias_Zilbersahn5": {
+          "slug": "Tobias_Zilbersahn5"
+        }
+      }
+    }
+  },
   "youtube": {
     "channel": {
       "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?youtube.com\\/channel\\/(?P<id>[A-z0-9-\\_]+)\\/?",
