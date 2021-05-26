@@ -58,9 +58,12 @@
   },
   "email": {
     "mailto": {
-      "note": "This is for scraping only and in no way usable as a validation. See [\"Your email validation logic is wrong\"](https://www.netmeister.org/blog/email.html).",
-      "regex": "mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\\.[A-z]+)",
+      "note": "This matches plain emails and mailto hyperlinks. This regex is intended for scraping and not as a validation. See why: [\"Your email validation logic is wrong\"](https://www.netmeister.org/blog/email.html).",
+      "regex": "(?:mailto:)?(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\\.[A-z]+)",
       "tests": {
+        "jeff@amazon.com": {
+          "email": "jeff@amazon.com"
+        },
         "mailto:jeff@amazon.com": {
           "email": "jeff@amazon.com"
         },
