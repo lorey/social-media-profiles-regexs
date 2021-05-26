@@ -115,7 +115,7 @@ Examples:
 ```regex
 mailto:(?P<email>[A-z0-9_.+-]+@[A-z0-9_.-]+\.[A-z]+)
 ```
-This is for scraping only and in no way usable as a validation.
+This is for scraping only and in no way usable as a validation. See ["Your email validation logic is wrong"](https://www.netmeister.org/blog/email.html).
 
 Examples: 
 
