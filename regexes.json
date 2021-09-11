@@ -407,6 +407,17 @@
       }
     }
   },
+  "whatsapp": {
+    "profile": {
+      "note": "Matches for wa.me",
+      "regex": "(?:https?:)?\\/\\/(?:wa.me/)(?P<number>\\+?[0-9. -]+)",
+      "tests": {
+        "https://wa.me/60122738668": {
+          "username": "60122738668"
+        }
+      }
+    }
+  },
   "twitter": {
     "status": {
       "regex": "(?:https?:)?\\/\\/(?:[A-z]+\\.)?twitter\\.com\\/@?(?P<username>[A-z0-9_]+)\\/status\\/(?P<tweet_id>[0-9]+)\\/?",
