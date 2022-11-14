@@ -141,7 +141,7 @@ Examples:
 
 ### profile by id
 ```regex
-(?:https?:)?\/\/(?:www\.)facebook.com/(?:profile.php\?id=)?(?P<id>[0-9]+)
+(?:https?:)?\/\/(?:www\.)facebook.com\/(?:profile.php\?id=)?(?P<id>[0-9]+)
 ```
 
 
