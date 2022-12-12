@@ -56,6 +56,16 @@
       }
     }
   },
+  "yelp": {
+    "company": {
+      "regex": "(?:https?:\\/\\/)?(www\\.)?yelp\\.com\/biz\/([A-z0-9_-]+)",
+      "tests": {
+        "https://www.yelp.com/biz/buddha-bliss-therapeutic-massage-san-francisco-2": {
+          "biz": "buddha-bliss-therapeutic-massage-san-francisco-2"
+        }
+      }
+    }
+  },
   "email": {
     "mailto": {
       "note": "This matches plain emails and mailto hyperlinks. This regex is intended for scraping and not as a validation. See why: [\"Your email validation logic is wrong\"](https://www.netmeister.org/blog/email.html).",
